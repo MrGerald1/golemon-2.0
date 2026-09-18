@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GoLemon — full journey prototype (browse → cart → buy → meal plan → cook)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F3F7EA; --card:#FFFFFF; --ink:#15431F; --ink2:#2C4A36; --slate:#5C6B60; --muted:#8A938C;
+    --line:#E7ECE0; --green:#1E7A3C; --green-deep:#15431F; --lime:#CDEE63; --dark:#0C2A14;
+    --coral-bg:#FDE7E0; --coral-ink:#C5391F; --cream-bg:#FBEFD6; --cream-ink:#9A6410;
+    --mintg-bg:#E7F4E6; --mintg-ink:#2E7D43;
+    --t-mint:#DDF3D8; --t-amber:#FCEFC2; --t-peach:#FBE3D0; --t-teal:#DCEFEA; --t-blue:#E2ECFB; --t-pink:#FBE2E8; --t-cream:#FBEFD6;
+    --shadow:0 6px 18px rgba(20,50,25,.08);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased}
+  body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:#DfE4DA;color:var(--ink);
+    min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:24px 16px 40px}
+  .lead{text-align:center;margin-bottom:14px;max-width:340px}
+  .lead h1{font-size:19px;font-weight:800;color:var(--green-deep);letter-spacing:-.3px}
+  .lead p{font-size:12.5px;color:var(--slate);margin-top:3px}
+  .device{width:330px;height:700px;background:var(--bg);border-radius:42px;border:10px solid #11160F;
+    box-shadow:0 22px 50px rgba(20,50,25,.28);overflow:hidden;position:relative;display:flex;flex-direction:column}
+  .notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:130px;height:24px;background:#11160F;border-radius:0 0 18px 18px;z-index:60}
+  .status{height:34px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-size:11px;font-weight:700;color:var(--ink);flex:0 0 auto;z-index:5}
+  .stage{flex:1;position:relative;overflow:hidden}
+  .screen{position:absolute;inset:0;display:none;flex-direction:column;overflow-y:auto;-webkit-overflow-scrolling:touch}
+  .screen.active{display:flex}
+  .screen.dark{background:var(--dark)}
+  .body{flex:1;overflow-y:auto;padding:8px 16px 90px}
+  .body.nopad{padding-bottom:16px}
+  h2.h{font-size:21px;font-weight:800;letter-spacing:-.4px;color:var(--green-deep);font-family:'Plus Jakarta Sans'}
+  .sm{font-size:12px;color:var(--slate)} .xs{font-size:11px;color:var(--muted)}
+  .row{display:flex;align-items:center;gap:10px}
+  .topbar{display:flex;align-items:center;gap:10px;padding:6px 16px 8px}
+  .ic-btn{width:34px;height:34px;border-radius:50%;background:#fff;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--ink);cursor:pointer;flex:0 0 auto}
+  .brand{font-weight:800;font-size:18px;color:var(--green-deep);letter-spacing:-.3px}
+  .search{flex:1;height:40px;border-radius:22px;background:#fff;box-shadow:var(--shadow);display:flex;align-items:center;gap:8px;padding:0 14px;color:var(--muted);font-size:13px;font-family:'IBM Plex Sans'}
+  /* buttons */
+  .btn{font-family:'IBM Plex Sans';display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:50px;border-radius:26px;font-weight:700;font-size:15px;border:none;cursor:pointer}
+  .btn.primary{background:var(--green);color:#fff} .btn.lime{background:var(--lime);color:var(--green-deep)}
+  .btn.outline{background:#fff;border:1.6px solid var(--green);color:var(--green)} .btn.ghost{background:#fff;box-shadow:var(--shadow);color:var(--ink)}
+  .btn:active{transform:scale(.985)}
+  .addbtn{font-family:'IBM Plex Sans';height:32px;padding:0 16px;border-radius:18px;background:#fff;border:1.5px solid var(--green);color:var(--green);font-weight:700;font-size:12px;cursor:pointer}
+  .addbtn.in{background:var(--green);color:#fff;border-color:var(--green)}
+  /* promo + cards */
+  .promo{border-radius:18px;padding:15px 16px;background:var(--t-peach);margin-bottom:14px}
+  .promo b{font-size:14px;color:var(--coral-ink)} .promo .pill{display:inline-block;margin-top:8px;font-family:'IBM Plex Sans';font-size:11px;font-weight:700;background:var(--green-deep);color:#fff;padding:5px 12px;border-radius:16px}
+  .listcard{display:flex;align-items:center;gap:12px;background:var(--t-teal);border-radius:16px;padding:13px 15px;margin-bottom:16px;cursor:pointer}
+  .listcard .e{width:40px;height:40px;border-radius:12px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:20px}
+  .sectionhead{display:flex;align-items:center;justify-content:space-between;margin:6px 0 11px}
+  .sectionhead .t{font-size:15px;font-weight:800;color:var(--green-deep)}
+  .sectionhead .a{font-family:'IBM Plex Sans';font-size:12px;font-weight:700;color:var(--green);cursor:pointer}
+  .cats{display:flex;gap:14px;overflow-x:auto;padding-bottom:6px;margin-bottom:18px}
+  .cat{flex:0 0 auto;width:72px;text-align:center;cursor:pointer}
+  .cat .circ{width:66px;height:66px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;margin:0 auto 6px}
+  .cat .lbl{font-size:10.5px;font-weight:600;color:var(--ink2);line-height:1.2}
+  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .pcard{background:#fff;border-radius:16px;box-shadow:var(--shadow);padding:10px;cursor:pointer;display:flex;flex-direction:column}
+  .pcard .img{height:84px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:36px;margin-bottom:9px;position:relative}
+  .pcard .off{position:absolute;top:6px;left:6px;font-family:'IBM Plex Sans';font-size:9.5px;font-weight:700;background:var(--coral-bg);color:var(--coral-ink);padding:2px 7px;border-radius:14px}
+  .pcard .nm{font-size:12.5px;font-weight:600;line-height:1.25;color:var(--ink)}
+  .pcard .un{font-size:10.5px;color:var(--muted);margin:1px 0 7px}
+  .pcard .pr{display:flex;align-items:center;justify-content:space-between;margin-top:auto}
+  .price{font-family:'IBM Plex Sans';font-weight:700;font-size:13.5px;color:var(--green-deep)}
+  .strike{font-family:'IBM Plex Sans';font-size:10.5px;color:var(--muted);text-decoration:line-through}
+  /* product detail */
+  .phero{height:170px;border-radius:20px;display:flex;align-items:flex-start;justify-content:flex-start;padding:12px;font-size:64px;margin-bottom:14px;position:relative}
+  .note{background:var(--cream-bg);color:var(--cream-ink);border-radius:13px;padding:10px 13px;font-size:12px;margin:12px 0;font-family:'IBM Plex Sans'}
+  .preprow{display:flex;align-items:center;gap:11px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:12px 0;cursor:pointer}
+  .preprow .e{width:36px;height:36px;border-radius:11px;background:var(--mintg-bg);display:flex;align-items:center;justify-content:center;font-size:18px}
+  .qty{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--line);border-radius:22px;padding:5px 8px}
+  .qty button{width:30px;height:30px;border-radius:50%;border:none;background:var(--mintg-bg);color:var(--green);font-size:18px;font-weight:700;cursor:pointer;font-family:'IBM Plex Sans'}
+  .qty span{font-family:'IBM Plex Sans';font-weight:700;min-width:18px;text-align:center}
+  /* cart */
+  .citem{display:flex;gap:12px;background:#fff;border-radius:16px;box-shadow:var(--shadow);padding:11px;margin-bottom:11px}
+  .citem .e{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:26px;flex:0 0 auto}
+  .citem .meta{flex:1;min-width:0}
+  .citem .prep{font-family:'IBM Plex Sans';font-size:10px;font-weight:700;color:var(--green);background:var(--mintg-bg);display:inline-block;padding:2px 8px;border-radius:12px;margin-top:4px}
+  .summary{background:#fff;border-radius:16px;box-shadow:var(--shadow);padding:14px;margin-top:6px}
+  .sline{display:flex;justify-content:space-between;font-size:13px;padding:5px 0;color:var(--ink2);font-family:'IBM Plex Sans'}
+  .sline.tot{border-top:1px solid var(--line);margin-top:6px;padding-top:10px;font-weight:800;font-size:15px;color:var(--green-deep)}
+  /* schedule chips */
+  .chips{display:flex;gap:9px;flex-wrap:wrap;margin:8px 0 4px}
+  .chip{font-family:'IBM Plex Sans';font-size:12px;font-weight:600;padding:9px 14px;border-radius:18px;background:#fff;border:1.4px solid var(--line);cursor:pointer}
+  .chip.on{background:var(--mintg-bg);border-color:var(--green);color:var(--green)}
+  /* bottom nav */
+  .tabbar{position:absolute;left:0;right:0;bottom:0;height:64px;background:#fff;border-top:1px solid var(--line);display:flex;z-index:40}
+  .tab{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:10px;font-weight:600;color:var(--muted);cursor:pointer;position:relative;font-family:'IBM Plex Sans'}
+  .tab .i{font-size:20px} .tab.on{color:var(--green)}
+  .tab .badge{position:absolute;top:6px;right:24px;min-width:16px;height:16px;border-radius:9px;background:var(--coral-ink);color:#fff;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;padding:0 4px}
+  /* sticky cta */
+  .cta{position:absolute;left:0;right:0;bottom:0;padding:12px 16px 16px;background:linear-gradient(180deg,rgba(243,247,234,0),var(--bg) 30%);z-index:30}
+  /* meal plan */
+  .cover{display:flex;align-items:center;gap:10px;background:var(--mintg-bg);border-radius:14px;padding:11px 13px;margin-bottom:13px}
+  .cover b{color:var(--mintg-ink);font-size:12.5px}
+  .firsthint{display:flex;gap:9px;background:var(--coral-bg);border-radius:14px;padding:10px 13px;margin-bottom:14px}
+  .firsthint .sm{color:var(--coral-ink)}
+  .daycard{background:#fff;border-radius:18px;box-shadow:var(--shadow);margin-bottom:12px;overflow:hidden}
+  .dayhdr{display:flex;align-items:center;gap:8px;padding:12px 14px 9px}
+  .dayname{font-weight:800;font-size:14px;color:var(--green-deep)}
+  .daypill{font-family:'IBM Plex Sans';font-size:10px;font-weight:700;padding:2px 9px;border-radius:20px;background:var(--lime);color:var(--green-deep)}
+  .daysub{margin-left:auto;font-size:10.5px;color:var(--muted);font-family:'IBM Plex Sans'}
+  .meal{display:flex;align-items:center;gap:11px;padding:11px 14px;cursor:pointer}
+  .meal:not(:last-child){border-top:1px solid var(--line)}
+  .slot{flex:0 0 30px;width:30px;height:30px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:15px}
+  .slotlabel{font-family:'IBM Plex Sans';font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--muted)}
+  .mealname{font-size:13.5px;font-weight:600;color:var(--ink);line-height:1.25}
+  .mealmeta{display:flex;align-items:center;gap:7px;margin-top:2px;flex-wrap:wrap}
+  .dur{font-family:'IBM Plex Sans';font-size:10.5px;color:var(--slate);font-weight:600}
+  .mtag{font-family:'IBM Plex Sans';font-size:9.5px;font-weight:700;padding:2px 7px;border-radius:20px}
+  .mtag.red{background:var(--coral-bg);color:var(--coral-ink)} .mtag.amber{background:var(--cream-bg);color:var(--cream-ink)} .mtag.lime{background:var(--lime);color:var(--green-deep)}
+  .chev{margin-left:auto;color:#C2CBBE;font-size:16px}
+  /* recipe */
+  .step{display:flex;gap:10px;font-size:12.5px;line-height:1.45;margin-bottom:11px;color:var(--ink2)}
+  .step .n{flex:0 0 22px;height:22px;border-radius:50%;background:var(--mintg-bg);color:var(--green);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Sans'}
+  .pill2{font-family:'IBM Plex Sans';display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;padding:5px 11px;border-radius:20px;background:#fff;box-shadow:var(--shadow);color:var(--slate)}
+  .thumbs{display:flex;gap:8px;margin-top:6px}
+  .tb{font-family:'IBM Plex Sans';flex:1;height:38px;border-radius:20px;background:#fff;border:1.4px solid var(--line);display:flex;align-items:center;justify-content:center;gap:6px;font-size:12px;font-weight:600;color:var(--slate);cursor:pointer}
+  .tb.on{border-color:var(--green);background:var(--mintg-bg);color:var(--green)}
+  /* overlays / sheets */
+  .overlay{position:absolute;inset:0;background:rgba(12,42,20,.42);display:none;align-items:flex-end;z-index:70}
+  .overlay.active{display:flex}
+  .sheet{background:#fff;width:100%;border-radius:22px 22px 0 0;padding:18px 16px 20px;max-height:80%;overflow-y:auto}
+  .grab{width:38px;height:4px;border-radius:4px;background:#E1E6DC;margin:0 auto 14px}
+  .check{display:flex;align-items:center;gap:11px;padding:11px 2px;cursor:pointer;font-size:13.5px}
+  .cobox{width:22px;height:22px;border-radius:7px;border:1.7px solid #CBD4C5;display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;flex:0 0 auto}
+  .check.on .cobox{background:var(--green);border-color:var(--green)}
+  .tabsui{display:flex;gap:20px;border-bottom:1px solid var(--line);margin:6px 0 10px}
+  .tabui{font-family:'IBM Plex Sans';font-size:13px;font-weight:700;padding-bottom:9px;color:var(--muted);cursor:pointer}
+  .tabui.on{color:var(--green-deep);border-bottom:2px solid var(--green)}
+  .opt{font-family:'IBM Plex Sans';height:48px;border-radius:24px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;margin-top:9px;cursor:pointer}
+  /* dark moments */
+  .center{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px}
+  .big{font-size:22px;font-weight:800;line-height:1.25;color:#fff;letter-spacing:-.3px}
+  .notif{background:#fff;border-radius:16px;padding:13px;display:flex;gap:11px;align-items:center;box-shadow:0 12px 28px rgba(0,0,0,.18);text-align:left;cursor:pointer;width:100%}
+  .notif .ic{width:40px;height:40px;border-radius:12px;background:var(--lime);display:flex;align-items:center;justify-content:center;font-size:20px;flex:0 0 auto}
+  .reset{margin-top:14px;font-size:12px;color:var(--slate);cursor:pointer;text-decoration:underline;font-family:'IBM Plex Sans'}
+  .progress{position:absolute;top:-30px;left:0;right:0;text-align:center;font-size:11px;color:var(--slate);font-family:'IBM Plex Sans'}
+</style>
+</head>
+<body>
+  <div class="lead">
+    <h1>GoLemon — full journey</h1>
+    <p>Tap through it: browse → add to cart → checkout → delivery → your meal plan → cook. Live, clickable.</p>
+  </div>
+
+  <div class="device">
+    <div class="notch"></div>
+    <div class="status"><span>9:41</span><span>＋ ⓦ ▥</span></div>
+    <div class="stage" id="stage">
+
+      <!-- HOME -->
+      <section class="screen active" id="home">
+        <div class="topbar"><div class="brand">GoLemon 💚</div><div class="ic-btn" onclick="go('account')">👤</div></div>
+        <div class="topbar" style="padding-top:0"><div class="search" onclick="go('category')">🔍 Search 7,000+ products</div></div>
+        <div class="body">
+          <div class="promo"><b>Save up to 50% on perfectly imperfect products</b><div class="sm" style="margin-top:3px">GoLemon Misfits — same taste, rescued price.</div><span class="pill" onclick="go('category')">Shop Misfits now</span></div>
+          <div class="listcard" onclick="go('category')"><div class="e">📝</div><div><div style="font-weight:700;font-size:13.5px">Your Lists</div><div class="sm">Shop quickly with saved lists</div></div><div class="chev" style="margin-left:auto">›</div></div>
+          <div class="sectionhead"><div class="t">Shop by category 🍉</div><div class="a" onclick="go('category')">See all</div></div>
+          <div class="cats">
+            <div class="cat" onclick="go('category')"><div class="circ" style="background:var(--t-mint)">🥬</div><div class="lbl">Fresh produce</div></div>
+            <div class="cat" onclick="go('category')"><div class="circ" style="background:var(--t-peach)">🥩</div><div class="lbl">Proteins</div></div>
+            <div class="cat" onclick="go('category')"><div class="circ" style="background:var(--t-amber)">🍚</div><div class="lbl">Grains</div></div>
+            <div class="cat" onclick="go('category')"><div class="circ" style="background:var(--t-blue)">🧂</div><div class="lbl">Pantry</div></div>
+            <div class="cat" onclick="go('category')"><div class="circ" style="background:var(--t-cream)">🍞</div><div class="lbl">Bakery</div></div>
+          </div>
+          <div class="sectionhead"><div class="t">Taste what's in season</div><div class="a" onclick="go('category')">See all</div></div>
+          <div class="pgrid" id="homeGrid"></div>
+        </div>
+        <div class="tabbar" id="tab-home"></div>
+      </section>
+
+      <!-- CATEGORY / BROWSE -->
+      <section class="screen" id="category">
+        <div class="topbar"><div class="ic-btn" onclick="go('home')">←</div><div class="search">🔍 Fresh produce, proteins…</div></div>
+        <div class="body">
+          <div class="chips"><div class="chip on">All</div><div class="chip">Fresh produce</div><div class="chip">Proteins</div><div class="chip">Grains</div><div class="chip">Pantry</div></div>
+          <div class="pgrid" id="catGrid" style="margin-top:8px"></div>
+        </div>
+        <div class="tabbar" id="tab-category"></div>
+      </section>
+
+      <!-- PRODUCT DETAIL -->
+      <section class="screen" id="product">
+        <div class="topbar"><div class="ic-btn" onclick="go('category')">←</div><div style="flex:1"></div><div class="ic-btn" onclick="go('cart')" style="position:relative">🧺<span id="pBadge" class="badge" style="position:absolute;top:-4px;right:-4px;min-width:16px;height:16px;border-radius:9px;background:var(--coral-ink);color:#fff;font-size:9px;font-weight:700;display:none;align-items:center;justify-content:center">0</span></div></div>
+        <div class="body" id="productBody"></div>
+        <div class="cta"><button class="btn primary" id="pAddBtn" onclick="addFromDetail()">Add to basket</button></div>
+      </section>
+
+      <!-- CART -->
+      <section class="screen" id="cart">
+        <div class="topbar"><div class="ic-btn" onclick="go('home')">←</div><h2 class="h" style="font-size:18px">Your basket</h2></div>
+        <div class="body" id="cartBody"></div>
+        <div class="cta" id="cartCta"></div>
+        <div class="tabbar" id="tab-cart"></div>
+      </section>
+
+      <!-- CHECKOUT -->
+      <section class="screen" id="checkout">
+        <div class="topbar"><div class="ic-btn" onclick="go('cart')">←</div><h2 class="h" style="font-size:18px">Checkout</h2></div>
+        <div class="body">
+          <div class="sm" style="font-weight:700;color:var(--green-deep);margin-bottom:6px">Deliver to</div>
+          <div class="citem" style="margin-bottom:16px"><div class="e" style="background:var(--t-blue)">📍</div><div class="meta"><div style="font-weight:600;font-size:13.5px">Home · Gbagada</div><div class="sm">12 Diya St, Lagos · 0803 •• ••12</div></div></div>
+          <div class="sm" style="font-weight:700;color:var(--green-deep);margin-bottom:4px">When should we deliver?</div>
+          <div class="chips" id="slotChips"><div class="chip on">Today, 5–7pm</div><div class="chip">Tomorrow AM</div><div class="chip">Tomorrow PM</div></div>
+          <div class="sm" style="font-weight:700;color:var(--green-deep);margin:14px 0 4px">Payment</div>
+          <div class="chips"><div class="chip on">Card •• 4412</div><div class="chip">Transfer</div><div class="chip">Pay on delivery</div></div>
+          <div class="summary" id="checkoutSummary" style="margin-top:16px"></div>
+          <div class="note" style="background:var(--mintg-bg);color:var(--mintg-ink)">🔪 We'll prep your items as you asked (dice, blend, scrape) before delivery — free on items under prep.</div>
+        </div>
+        <div class="cta"><button class="btn primary" onclick="placeOrder()">Place order</button></div>
+      </section>
+
+      <!-- ORDER CONFIRMED -->
+      <section class="screen" id="confirmed">
+        <div class="body nopad center" style="padding:30px">
+          <div style="width:96px;height:96px;border-radius:50%;background:var(--mintg-bg);display:flex;align-items:center;justify-content:center;font-size:46px;margin-bottom:18px">✅</div>
+          <h2 class="h">Order placed!</h2>
+          <p class="sm" style="margin-top:8px;max-width:230px;line-height:1.6">We're prepping your basket now. It'll arrive <b>today between 5–7pm</b> in a reusable crate. 💚</p>
+          <div class="summary" style="width:100%;margin-top:18px;text-align:left"><div class="sline"><span>Order #GL-48213</span><span id="confTotal"></span></div><div class="sline"><span>Items</span><span id="confItems"></span></div></div>
+          <button class="btn primary" style="margin-top:20px" onclick="go('delivered')">Simulate delivery →</button>
+          <div class="xs" style="margin-top:10px">(In the real app, this happens automatically 30 min after your delivery is confirmed.)</div>
+        </div>
+      </section>
+
+      <!-- DELIVERED — notification -->
+      <section class="screen dark" id="delivered">
+        <div class="center">
+          <div style="font-size:48px;margin-bottom:14px">🧺</div>
+          <div class="big">Your basket is home.</div>
+          <p style="color:#B7D6A8;font-size:14px;margin:12px 0 24px;line-height:1.6">We've planned your week from<br>today's delivery. Tap to view it.</p>
+          <div class="notif" onclick="go('plan')"><div class="ic">🍋</div><div><div style="font-size:12px;font-weight:700;color:var(--green-deep)">GoLemon</div><div style="font-size:11.5px;color:var(--slate)">Your basket is home. Your meal plan's ready. 🍋</div></div></div>
+        </div>
+      </section>
+
+      <!-- MEAL PLAN -->
+      <section class="screen" id="plan">
+        <div class="topbar"><div class="brand">GoLemon 💚</div></div>
+        <div class="body">
+          <h2 class="h" style="margin-bottom:8px">Your meal plan</h2>
+          <div class="cover"><span style="font-size:18px">🗓️</span><div><b>This basket covers about 5 days</b><div class="sm" style="color:var(--mintg-ink);opacity:.85">14 items · breakfast, lunch &amp; dinner</div></div></div>
+          <div class="firsthint"><span style="font-size:15px">⏱️</span><div class="sm"><b>Start with your ugu &amp; titus</b> — freshest for 2 days, so they lead the early meals.</div></div>
+          <div class="daycard">
+            <div class="dayhdr"><span class="dayname">Day 1</span><span class="daypill">Today</span><span class="daysub">3 meals</span></div>
+            <div class="meal" onclick="openMeal('brk')"><div class="slot" style="background:var(--cream-bg)">🌅</div><div><div class="slotlabel">Breakfast</div><div class="mealname">Bread &amp; egg sauce</div><div class="mealmeta"><span class="dur">⏱ 15 min</span></div></div><span class="chev">›</span></div>
+            <div class="meal" onclick="openMeal('lun')"><div class="slot" style="background:var(--t-amber)">☀️</div><div><div class="slotlabel">Lunch</div><div class="mealname">Jollof rice &amp; titus</div><div class="mealmeta"><span class="dur">⏱ 45 min</span><span class="mtag red">titus · today</span></div></div><span class="chev">›</span></div>
+            <div class="meal" onclick="openMeal('din')"><div class="slot" style="background:var(--t-blue)">🌙</div><div><div class="slotlabel">Dinner</div><div class="mealname">Egusi soup &amp; eba</div><div class="mealmeta"><span class="dur">⏱ 30 min</span><span class="mtag red">ugu · 2 days</span></div></div><span class="chev">›</span></div>
+          </div>
+          <div class="daycard">
+            <div class="dayhdr"><span class="dayname">Day 2</span><span class="daysub">+ dessert</span></div>
+            <div class="meal" onclick="openMeal('brk2')"><div class="slot" style="background:var(--cream-bg)">🌅</div><div><div class="slotlabel">Breakfast</div><div class="mealname">Plantain &amp; egg</div><div class="mealmeta"><span class="dur">⏱ 15 min</span></div></div><span class="chev">›</span></div>
+            <div class="meal" onclick="openMeal('lun2')"><div class="slot" style="background:var(--t-amber)">☀️</div><div><div class="slotlabel">Lunch</div><div class="mealname">Okra soup &amp; semo</div><div class="mealmeta"><span class="dur">⏱ 20 min</span><span class="mtag amber">okra · 4 days</span></div></div><span class="chev">›</span></div>
+            <div class="meal" onclick="openMeal('dst')"><div class="slot" style="background:var(--t-pink)">🍰</div><div><div class="slotlabel">Dessert</div><div class="mealname">Sliced pineapple</div><div class="mealmeta"><span class="dur">⏱ 5 min</span></div></div><span class="chev">›</span></div>
+          </div>
+        </div>
+        <div class="cta"><button class="btn primary" onclick="openMeal('din')">Cook tonight's dinner →</button></div>
+      </section>
+
+      <!-- MEAL DETAIL / RECIPE -->
+      <section class="screen" id="meal">
+        <div class="topbar"><div class="ic-btn" onclick="go('plan')">←</div><div class="brand" id="mealCrumb" style="font-size:15px">Day 1 · Dinner</div></div>
+        <div class="body" id="mealBody"></div>
+        <div class="cta"><button class="btn primary" style="margin-bottom:8px" onclick="openSheet('reminderSheet')">🔔 Set a reminder</button><button class="btn outline" style="height:42px;font-size:13px" onclick="go('plan')">Swap this meal</button></div>
+      </section>
+
+      <!-- DID YOU COOK (replays plan with sheet) -->
+      <section class="screen" id="nextsession">
+        <div class="topbar"><div class="brand">GoLemon 💚</div></div>
+        <div class="body" style="filter:blur(1px);opacity:.6"><h2 class="h">Your meal plan</h2><div class="cover" style="margin-top:10px"><span style="font-size:18px">🗓️</span><div><b>A new basket · covers about 5 days</b></div></div></div>
+      </section>
+
+      <!-- LOVEMARK -->
+      <section class="screen dark" id="lovemark">
+        <div class="center">
+          <div style="width:118px;height:118px;border-radius:22px;background:rgba(205,238,99,.14);display:flex;align-items:center;justify-content:center;font-size:46px;margin-bottom:18px">🍲</div>
+          <div class="big">You turned your delivery<br>into dinner.</div>
+          <p style="color:#B7D6A8;font-size:14px;margin-top:14px;line-height:1.6">That's what GoLemon is for.</p>
+          <div style="margin-top:24px;background:rgba(205,238,99,.12);border:1px solid rgba(205,238,99,.32);border-radius:15px;padding:12px 16px"><span style="color:var(--lime);font-weight:700;font-size:13px">3 meals from GoLemon · 6 days of food you didn't waste 💚</span></div>
+          <div class="reset" style="color:#9FBE90" onclick="resetAll()">↺ Start the journey again</div>
+        </div>
+      </section>
+
+      <!-- ACCOUNT (stub) -->
+      <section class="screen" id="account">
+        <div class="topbar"><div class="ic-btn" onclick="go('home')">←</div><h2 class="h" style="font-size:18px">Account</h2></div>
+        <div class="body"><div class="citem"><div class="e" style="background:var(--t-mint)">👤</div><div class="meta"><div style="font-weight:700">Amara O.</div><div class="sm">Gbagada, Lagos · 9 orders</div></div></div><div class="sm" style="margin-top:14px;line-height:2.2"><div>🧺 Order history</div><div>📝 Saved lists</div><div>📍 Addresses</div><div>🔔 Notifications · meal plans ON</div></div></div>
+        <div class="tabbar" id="tab-account"></div>
+      </section>
+
+    </div>
+
+    <!-- PREP INSTRUCTION SHEET -->
+    <div class="overlay" id="prepSheet">
+      <div class="sheet">
+        <div class="grab"></div>
+        <h2 class="h" style="font-size:17px">Add shopping instruction</h2>
+        <div class="tabsui"><div class="tabui on">Processing options</div><div class="tabui">Item preferences</div></div>
+        <div class="sm" style="font-family:'IBM Plex Sans';margin-bottom:6px">Processing fee: ₦100 × 1</div>
+        <div class="check" onclick="this.classList.toggle('on')"><div class="cobox">✓</div>Slice</div>
+        <div class="check on" onclick="this.classList.toggle('on')"><div class="cobox">✓</div>Dice</div>
+        <div class="check" onclick="this.classList.toggle('on')"><div class="cobox">✓</div>Blend</div>
+        <div class="check" onclick="this.classList.toggle('on')"><div class="cobox">✓</div>Scrape</div>
+        <div class="note" style="background:#F4F7EF;color:var(--slate)">Tell us how to prepare your items — cut, blend, pluck, etc.</div>
+        <button class="btn primary" onclick="savePrep()">Save instruction</button>
+      </div>
+    </div>
+
+    <!-- REMINDER SHEET -->
+    <div class="overlay" id="reminderSheet">
+      <div class="sheet" style="text-align:center">
+        <div class="grab"></div>
+        <div style="width:64px;height:64px;border-radius:50%;background:var(--mintg-bg);display:flex;align-items:center;justify-content:center;font-size:30px;margin:6px auto 14px">✅</div>
+        <h2 class="h" style="font-size:17px">Done. We'll remind you at 6:30 PM.</h2>
+        <p class="sm" style="margin:8px 0 16px">Tap the reminder and tonight's recipe opens right here.</p>
+        <button class="btn primary" onclick="closeSheet('reminderSheet');go('nextsession');setTimeout(()=>openSheet('cookSheet'),500)">Got it</button>
+      </div>
+    </div>
+
+    <!-- DID YOU COOK SHEET -->
+    <div class="overlay" id="cookSheet">
+      <div class="sheet">
+        <div class="grab"></div>
+        <div class="sm" style="font-family:'IBM Plex Sans';text-transform:uppercase;letter-spacing:.4px;font-weight:700;color:var(--muted);margin-bottom:7px">Quick check-in</div>
+        <h2 class="h" style="font-size:17px;line-height:1.3">Last time, tonight's plan<br>was egusi soup.</h2>
+        <p class="sm" style="margin:5px 0 14px">Did you cook it?</p>
+        <div class="opt" style="background:var(--green);color:#fff" onclick="closeSheet('cookSheet');go('lovemark')">Yes, I made it ✓</div>
+        <div class="opt" style="background:#fff;border:1.4px solid var(--line)" onclick="closeSheet('cookSheet');go('plan')">Not this time</div>
+        <div class="opt" style="color:var(--muted)" onclick="closeSheet('cookSheet');go('plan')">Skip</div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const NGN = n => '₦' + n.toLocaleString();
+    const PRODUCTS = [
+      {id:'ugu',  name:'Ugu (pumpkin leaf)', unit:'1 bunch', price:700,  was:0,    cat:'Fresh produce', e:'🥬', tint:'var(--t-mint)', note:'Highly perishable — best within 2 days.'},
+      {id:'titus',name:'Titus fish',         unit:'1kg',     price:3500, was:0,    cat:'Proteins',      e:'🐟', tint:'var(--t-blue)', note:'Cleaned & gutted. Cook within a day.'},
+      {id:'tomato',name:'Fresh tomatoes',    unit:'1 paint', price:1200, was:0,    cat:'Fresh produce', e:'🍅', tint:'var(--t-pink)', note:'Use within 2 days for the best stew.'},
+      {id:'rice', name:'Parboiled rice',     unit:'5kg',     price:6500, was:0,    cat:'Grains',        e:'🍚', tint:'var(--t-amber)', note:'Pantry staple — keeps for months.'},
+      {id:'plantain',name:'Ripe plantain',   unit:'3 fingers',price:1500,was:0,    cat:'Fresh produce', e:'🍌', tint:'var(--t-amber)', note:'Ripe — fry, or try a savoury porridge.'},
+      {id:'beef', name:'Beef',               unit:'1kg',     price:4500, was:0,    cat:'Proteins',      e:'🥩', tint:'var(--t-peach)', note:'Fresh cut. Keeps ~5 days chilled.'},
+      {id:'egusi',name:'Egusi (melon seed)', unit:'500g',    price:2000, was:0,    cat:'Pantry',        e:'🫘', tint:'var(--t-amber)', note:'Ground. Pantry staple.'},
+      {id:'okra', name:'Okra',               unit:'1 cup',   price:600,  was:0,    cat:'Fresh produce', e:'🌿', tint:'var(--t-mint)', note:'Use by day 4 for the best draw.'},
+      {id:'palm', name:'Palm oil',           unit:'1 litre', price:2500, was:0,    cat:'Pantry',        e:'🛢️', tint:'var(--t-coral)', note:'Pantry staple.'},
+      {id:'bread',name:'Agege bread',        unit:'1 loaf',  price:1000, was:0,    cat:'Bakery',        e:'🍞', tint:'var(--t-cream)', note:'Fresh-baked. Best in 3 days.'},
+      {id:'egg',  name:'Eggs',               unit:'1 crate', price:4500, was:0,    cat:'Proteins',      e:'🥚', tint:'var(--t-cream)', note:'30 pieces. Keeps ~3 weeks.'},
+      {id:'misfit',name:'Shombo pepper [misfit]',unit:'300g',price:309, was:882,  cat:'Fresh produce', e:'🌶️', tint:'var(--t-pink)', note:'Spotted & slightly squishy — perfect for stew.'},
+    ];
+    let cart = {}; let current = null; let DELIVERY = 500; let PREP = 0;
+
+    function tabbar(active){
+      const items=[['home','🏠','Home'],['category','🧺','Shop'],['cart','🛒','Basket'],['account','👤','Me']];
+      return items.map(([id,i,l])=>{
+        const n = id==='cart'?cartCount():0;
+        const badge = (id==='cart'&&n)?`<span class="badge">${n}</span>`:'';
+        return `<div class="tab ${id===active?'on':''}" onclick="go('${id}')">${badge}<span class="i">${i}</span>${l}</div>`;
+      }).join('');
+    }
+    function cartCount(){return Object.values(cart).reduce((a,c)=>a+c.qty,0);}
+    function cartSubtotal(){return Object.values(cart).reduce((a,c)=>a+c.qty*c.p.price,0);}
+
+    function pcard(p){
+      const off = p.was?`<div class="off">${Math.round((1-p.price/p.was)*100)}% off</div>`:'';
+      const strike = p.was?`<span class="strike">${NGN(p.was)}</span>`:'';
+      const inCart = cart[p.id];
+      return `<div class="pcard" onclick="openProduct('${p.id}')">
+        <div class="img" style="background:${p.tint}">${off}${p.e}</div>
+        <div class="nm">${p.name}</div><div class="un">${p.unit}</div>
+        <div class="pr"><div><div class="price">${NGN(p.price)}</div>${strike}</div>
+        <button class="addbtn ${inCart?'in':''}" onclick="event.stopPropagation();quickAdd('${p.id}')">${inCart?'✓ '+inCart.qty:'Add'}</button></div></div>`;
+    }
+    function renderGrids(){
+      document.getElementById('homeGrid').innerHTML = PRODUCTS.slice(0,6).map(pcard).join('');
+      document.getElementById('catGrid').innerHTML = PRODUCTS.map(pcard).join('');
+    }
+    function quickAdd(id){ const p=PRODUCTS.find(x=>x.id===id); cart[id]=cart[id]||{p,qty:0,prep:false}; cart[id].qty++; refresh(); }
+
+    function openProduct(id){
+      current = PRODUCTS.find(x=>x.id===id);
+      const p=current; const off=p.was?`<div class="off" style="position:absolute;top:10px;left:10px">${Math.round((1-p.price/p.was)*100)}% off</div>`:'';
+      const strike=p.was?` <span class="strike">${NGN(p.was)}</span>`:'';
+      document.getElementById('productBody').innerHTML = `
+        <div class="phero" style="background:${p.tint}">${off}${p.e}</div>
+        <h2 class="h">${p.name}</h2>
+        <div class="sm" style="margin-top:2px">${p.unit} · ${p.cat}</div>
+        <div style="margin:10px 0"><span class="price" style="font-size:20px">${NGN(p.price)}</span>${strike}</div>
+        <div class="note">ℹ️ ${p.note}</div>
+        <div class="preprow" onclick="openSheet('prepSheet')"><div class="e">🔪</div><div style="flex:1"><div style="font-weight:700;font-size:13px">Add shopping instruction</div><div class="sm" id="prepLabel">Tell us how to prep it — dice, blend, scrape</div></div><span class="chev" style="margin-left:0">›</span></div>
+        <div class="row" style="justify-content:space-between;margin-top:14px"><div class="sm" style="font-weight:700;color:var(--green-deep)">Quantity</div>
+          <div class="qty"><button onclick="bump(-1)">−</button><span id="qv">1</span><button onclick="bump(1)">+</button></div></div>`;
+      window._qty=1; window._prep=false;
+      updateBadge(); go('product');
+    }
+    function bump(d){ window._qty=Math.max(1,(window._qty||1)+d); document.getElementById('qv').textContent=window._qty; }
+    function savePrep(){ window._prep=true; closeSheet('prepSheet'); const l=document.getElementById('prepLabel'); if(l){l.textContent='✓ Dice — prepped for you before delivery'; l.style.color='var(--green)'; l.style.fontWeight='600';} }
+    function addFromDetail(){ const id=current.id; cart[id]=cart[id]||{p:current,qty:0,prep:false}; cart[id].qty+=(window._qty||1); if(window._prep)cart[id].prep=true; refresh(); go('cart'); }
+
+    function updateBadge(){ const b=document.getElementById('pBadge'); const n=cartCount(); if(b){b.style.display=n?'flex':'none'; b.textContent=n;} }
+
+    function renderCart(){
+      const items=Object.values(cart);
+      const body=document.getElementById('cartBody'); const cta=document.getElementById('cartCta');
+      if(!items.length){ body.innerHTML=`<div class="center" style="padding:50px 20px"><div style="font-size:46px">🧺</div><h2 class="h" style="margin-top:12px">Your basket is empty</h2><p class="sm" style="margin-top:6px">Add a few items and we'll plan your meals.</p><button class="btn primary" style="margin-top:18px" onclick="go('category')">Start shopping</button></div>`; cta.innerHTML=''; return; }
+      PREP = items.filter(c=>c.prep).length*100;
+      body.innerHTML = items.map(c=>`<div class="citem"><div class="e" style="background:${c.p.tint}">${c.p.e}</div>
+        <div class="meta"><div style="font-weight:600;font-size:13.5px">${c.p.name}</div><div class="sm">${c.p.unit} · ${NGN(c.p.price)}</div>${c.prep?'<div class="prep">🔪 Dice — prepped for you</div>':''}</div>
+        <div class="qty" style="align-self:center"><button onclick="cartBump('${c.p.id}',-1)">−</button><span>${c.qty}</span><button onclick="cartBump('${c.p.id}',1)">+</button></div></div>`).join('')
+        + summaryHTML();
+      cta.innerHTML = `<button class="btn primary" onclick="go('checkout')">Checkout · ${NGN(cartSubtotal()+DELIVERY+PREP)}</button>`;
+    }
+    function summaryHTML(){
+      return `<div class="summary"><div class="sline"><span>Subtotal</span><span>${NGN(cartSubtotal())}</span></div>
+        <div class="sline"><span>Prep service</span><span>${NGN(PREP)}</span></div>
+        <div class="sline"><span>Delivery</span><span>${NGN(DELIVERY)}</span></div>
+        <div class="sline tot"><span>Total</span><span>${NGN(cartSubtotal()+DELIVERY+PREP)}</span></div></div>`;
+    }
+    function cartBump(id,d){ cart[id].qty+=d; if(cart[id].qty<=0)delete cart[id]; refresh(); }
+
+    function renderCheckout(){ document.getElementById('checkoutSummary').innerHTML = summaryHTML(); }
+    function placeOrder(){ document.getElementById('confTotal').textContent=NGN(cartSubtotal()+DELIVERY+PREP); document.getElementById('confItems').textContent=cartCount()+' items'; go('confirmed'); }
+
+    const MEALS={
+      din:{c:'Day 1 · Dinner',n:'Egusi soup & eba',tint:'var(--t-mint)',tag:'⏱ Uses your ugu — 2 days left',dots:2,min:'30 min active',surprise:false,steps:['Heat palm oil 1 min. Add onions, stir till see-through.','Pour in egusi. Stir 2–3 min till it smells nutty.','Add beef + ½ cup water. Lid on, low heat, 10 min.','Add ugu, stir, lid on 2 min. Done. Serve with eba.']},
+      lun:{c:'Day 1 · Lunch',n:'Jollof rice & titus',tint:'var(--t-amber)',tag:'⏱ Uses your titus — today',dots:1,min:'45 min',surprise:false,steps:['Season & fry the titus. Set aside.','Blend tomato + pepper, fry till oil floats.','Add rice + stock, cover, low heat 25–30 min.','Plate the jollof with the titus on top.']},
+      brk:{c:'Day 1 · Breakfast',n:'Bread & egg sauce',tint:'var(--t-cream)',tag:'⏱ 15 min',dots:1,min:'15 min',surprise:false,steps:['Fry onion 1 min. Add diced tomato & pepper, 3–4 min.','Crack in eggs, wait 30s, scramble into the sauce.','Season with salt. Serve with the bread.']},
+      brk2:{c:'Day 2 · Breakfast',n:'Plantain & egg',tint:'var(--t-amber)',tag:'⏱ 15 min',dots:1,min:'15 min',surprise:false,steps:['Slice & salt the plantain. Fry golden, 2–3 min each side.','Beat eggs, scramble softly in the same pan.','Serve together.']},
+      lun2:{c:'Day 2 · Lunch',n:'Okra soup & semo',tint:'var(--t-amber)',tag:'⏱ Uses your okra — 4 days',dots:1,min:'20 min',surprise:false,steps:['Pre-cook protein in stock.','Add palm oil & crayfish, taste.','Add sliced okra, 5 min only — keeps the draw.','Serve with semo.']},
+      dst:{c:'Day 2 · Dessert',n:'Sliced pineapple',tint:'var(--t-pink)',tag:'⏱ 5 min',dots:1,min:'5 min',surprise:false,steps:['Top & tail the pineapple, slice off the skin.','Cut into rings or chunks, remove the core.','Chill if you have time. Done.']},
+      din2:{c:'Day 2 · Dinner',n:'Plantain porridge',tint:'var(--t-blue)',tag:'New combo',dots:1,min:'25 min',surprise:true,steps:['Heat palm oil, add onion 1 min.','Add blended tomato-pepper, fry 5 min.','Add plantain chunks + 1 cup water, cover 10–12 min.','Season, mash slightly, add scent leaf. Done.']}
+    };
+    function openMeal(id){
+      const m=MEALS[id]; current=m;
+      document.getElementById('mealCrumb').textContent=m.c;
+      const dots=`<span style="display:inline-flex;gap:3px;align-items:center">${[0,1,2].map(i=>`<span style="width:6px;height:6px;border-radius:50%;background:${i<m.dots?'var(--green)':'#CFD8CC'}"></span>`).join('')}</span>`;
+      const badge=m.surprise?`<div style="position:absolute;top:10px;left:10px;background:var(--lime);color:var(--green-deep);font-size:10px;font-weight:700;padding:3px 9px;border-radius:20px;font-family:IBM Plex Sans">New combo</div>`:'';
+      const sn=m.surprise?`<div class="note">✨ <b>New combo:</b> most people fry ripe plantain — this turns it into a savoury porridge using the same plantain.</div>`:'';
+      document.getElementById('mealBody').innerHTML=`
+        <div class="phero" style="background:${m.tint};height:120px;align-items:flex-start">${badge}<span class="pill2" style="background:var(--coral-bg);color:var(--coral-ink);box-shadow:none;position:absolute;bottom:10px;left:10px">${m.tag}</span></div>
+        <h2 class="h" style="font-size:20px">${m.n}</h2>
+        <div class="row" style="gap:8px;margin:9px 0 12px"><span class="pill2">${dots}&nbsp;Easy-ish</span><span class="pill2">⏱ ${m.min}</span></div>
+        ${sn}${m.steps.map((s,i)=>`<div class="step"><span class="n">${i+1}</span><span>${s}</span></div>`).join('')}
+        <div class="thumbs"><div class="tb on" onclick="this.classList.add('on');this.nextElementSibling.classList.remove('on')">👍 Looks good</div><div class="tb" onclick="this.classList.add('on');this.previousElementSibling.classList.remove('on')">👎 Not for me</div></div>`;
+      go('meal');
+    }
+
+    function go(id){ document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active')); document.getElementById(id).classList.add('active'); document.querySelectorAll('.body').forEach(b=>b.scrollTop=0); if(id==='cart')renderCart(); if(id==='checkout')renderCheckout(); updateBadge(); }
+    function openSheet(id){document.getElementById(id).classList.add('active');}
+    function closeSheet(id){document.getElementById(id).classList.remove('active');}
+    function refresh(){ renderGrids(); updateBadge(); ['tab-home','tab-category','tab-cart','tab-account'].forEach(t=>{const el=document.getElementById(t);if(el)el.innerHTML=tabbar(t.replace('tab-',''));}); if(document.getElementById('cart').classList.contains('active'))renderCart(); }
+    function resetAll(){ cart={}; refresh(); go('home'); }
+
+    renderGrids(); refresh();
+  </script>
+</body>
+</html>

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GoLemon Food Prep — Sprint 1 Prototype (matched to live app)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F3F7EA; --card:#FFFFFF;
+    --ink:#15431F; --ink2:#2C4A36; --slate:#5C6B60; --muted:#8A938C;
+    --line:#E7ECE0;
+    --green:#1E7A3C; --green-deep:#15431F; --green-soft:#2E8B4A;
+    --lime:#CDEE63; --lime-deep:#A9D63F;
+    --dark:#0C2A14;
+    --coral-bg:#FDE7E0; --coral-ink:#C5391F;
+    --cream-bg:#FBEFD6; --cream-ink:#9A6410;
+    --mintg-bg:#E7F4E6; --mintg-ink:#2E7D43;
+    --t-mint:#DDF3D8; --t-amber:#FCEFC2; --t-peach:#FBE3D0; --t-teal:#DCEFEA; --t-blue:#E2ECFB; --t-pink:#FBE2E8;
+    --shadow:0 6px 18px rgba(20,50,25,.08);
+    --r:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased}
+  body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:#E9ECE2;color:var(--ink);padding:40px 28px 60px}
+  h1.title,.h-lg,.h-md,.big,.cap,.brandrow,.ghead,.dayname{font-family:'Plus Jakarta Sans',sans-serif}
+  .btn,.pill,.tag,.tab,.days,.badge,.crumbs,.opt,.slotlabel,.mtag,.dur{font-family:'IBM Plex Sans',sans-serif}
+  h1.title{font-size:26px;font-weight:800;letter-spacing:-.5px;margin-bottom:4px;color:var(--green-deep)}
+  p.sub{color:var(--slate);font-size:14px;margin-bottom:8px}
+  .legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--slate);margin:14px 0 30px}
+  .sw{display:inline-flex;align-items:center;gap:6px}
+  .sw i{width:14px;height:14px;border-radius:5px;display:inline-block;border:1px solid rgba(0,0,0,.06)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,288px));gap:34px 30px;justify-content:center}
+  .cap{font-size:13px;font-weight:700;color:var(--green-deep);margin:0 0 10px 4px}
+  .cap span{color:var(--muted);font-weight:500;font-family:'Plus Jakarta Sans'}
+  .phone{width:288px;height:610px;background:var(--bg);border-radius:40px;border:9px solid #11160F;
+    box-shadow:0 18px 40px rgba(20,50,25,.18);overflow:hidden;position:relative;display:flex;flex-direction:column}
+  .notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:118px;height:22px;background:#11160F;border-radius:0 0 16px 16px;z-index:30}
+  .status{height:34px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;font-size:11px;font-weight:700;color:var(--ink);flex:0 0 auto}
+  .scr{flex:1;overflow:hidden;display:flex;flex-direction:column;position:relative}
+  .pad{padding:6px 18px 18px}
+  .appbar{display:flex;align-items:center;gap:10px;padding:4px 18px 10px}
+  .back{width:32px;height:32px;border-radius:50%;background:#fff;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:center;font-size:15px;color:var(--ink)}
+  .brandrow{display:flex;align-items:center;gap:7px;font-weight:800;font-size:17px;letter-spacing:-.3px;color:var(--green-deep)}
+  .h-lg{font-size:22px;font-weight:800;letter-spacing:-.5px;line-height:1.15;color:var(--green-deep)}
+  .h-md{font-size:16px;font-weight:700;color:var(--green-deep)}
+  .small{font-size:12px;color:var(--slate)}
+  .xsmall{font-size:11px;color:var(--muted)}
+  .btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:50px;border-radius:26px;font-weight:700;font-size:15px;border:none;cursor:pointer;text-decoration:none}
+  .btn.primary{background:var(--green);color:#fff}
+  .btn.lime{background:var(--lime);color:var(--green-deep)}
+  .btn.outline{background:#fff;border:1.6px solid var(--green);color:var(--green)}
+  .btn.ghost{background:#fff;box-shadow:var(--shadow);color:var(--ink)}
+  .footer-cta{position:absolute;left:0;right:0;bottom:0;padding:12px 18px 18px;background:linear-gradient(180deg,rgba(243,247,234,0),var(--bg) 32%)}
+  /* coverage banner */
+  .cover{display:flex;align-items:center;gap:10px;background:var(--mintg-bg);border-radius:14px;padding:10px 13px;margin-bottom:13px}
+  .cover .em{font-size:18px}
+  .cover b{color:var(--mintg-ink);font-size:12.5px}
+  .cover .small{color:var(--mintg-ink);opacity:.85}
+  /* first-cook hint */
+  .firsthint{display:flex;gap:9px;align-items:flex-start;background:var(--coral-bg);border-radius:14px;padding:10px 13px;margin-bottom:14px}
+  .firsthint .small{color:var(--coral-ink)}
+  /* day card */
+  .daycard{background:#fff;border-radius:18px;box-shadow:var(--shadow);margin-bottom:12px;overflow:hidden}
+  .dayhdr{display:flex;align-items:center;gap:8px;padding:12px 14px 9px}
+  .dayname{font-weight:800;font-size:14px;color:var(--green-deep)}
+  .daypill{font-size:10px;font-weight:700;padding:2px 9px;border-radius:20px;background:var(--lime);color:var(--green-deep)}
+  .daysub{margin-left:auto;font-size:10.5px;color:var(--muted)}
+  .meal{display:flex;align-items:center;gap:11px;padding:10px 14px}
+  .meal:not(:last-child){border-top:1px solid var(--line)}
+  .slot{flex:0 0 30px;width:30px;height:30px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:15px}
+  .s-b{background:var(--cream-bg)} .s-l{background:var(--t-amber)} .s-d{background:var(--t-blue)} .s-x{background:var(--t-pink)}
+  .mealbody{flex:1;min-width:0}
+  .slotlabel{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--muted)}
+  .mealname{font-size:13.5px;font-weight:600;color:var(--ink);line-height:1.25}
+  .mealmeta{display:flex;align-items:center;gap:7px;margin-top:2px;flex-wrap:wrap}
+  .dur{font-size:10.5px;color:var(--slate);font-weight:600;display:inline-flex;align-items:center;gap:3px}
+  .mtag{font-size:9.5px;font-weight:700;padding:2px 7px;border-radius:20px}
+  .mtag.red{background:var(--coral-bg);color:var(--coral-ink)}
+  .mtag.amber{background:var(--cream-bg);color:var(--cream-ink)}
+  .mtag.lime{background:var(--lime);color:var(--green-deep)}
+  .chev{color:#C2CBBE;font-size:15px;flex:0 0 auto}
+  /* detail / recipe */
+  .thumbimg{height:96px;border-radius:16px;margin-bottom:12px;display:flex;align-items:flex-start;padding:8px;position:relative}
+  .badge{background:var(--lime);color:var(--green-deep);font-size:10px;font-weight:700;padding:3px 9px;border-radius:20px}
+  .dots{display:flex;gap:3px;align-items:center}
+  .dots .d{width:6px;height:6px;border-radius:50%;background:var(--green)}
+  .dots .o{width:6px;height:6px;border-radius:50%;background:#CFD8CC}
+  .step{display:flex;gap:10px;font-size:12.5px;line-height:1.45;margin-bottom:11px;color:var(--ink2)}
+  .step .n{flex:0 0 22px;height:22px;border-radius:50%;background:var(--mintg-bg);color:var(--green);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center}
+  .pill{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;padding:5px 11px;border-radius:20px;background:#fff;box-shadow:var(--shadow);color:var(--slate)}
+  .thumbs{display:flex;gap:8px}
+  .tb{flex:1;height:38px;border-radius:20px;background:#fff;border:1.4px solid var(--line);display:flex;align-items:center;justify-content:center;gap:6px;font-size:12px;font-weight:600;color:var(--slate)}
+  .tb.on{border-color:var(--green);background:var(--mintg-bg);color:var(--green)}
+  /* sheets */
+  .overlay{position:absolute;inset:0;background:rgba(12,42,20,.40);display:flex;align-items:flex-end;z-index:20}
+  .sheet{background:#fff;width:100%;border-radius:22px 22px 0 0;padding:20px 18px 22px}
+  .grab{width:38px;height:4px;border-radius:4px;background:#E1E6DC;margin:0 auto 14px}
+  .opt{height:48px;border-radius:24px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;margin-top:9px}
+  .full-dark{position:absolute;inset:0;background:var(--dark);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px}
+  .full-dark .big{font-size:22px;font-weight:800;line-height:1.25;letter-spacing:-.4px}
+  .notif{background:#fff;border-radius:16px;padding:12px 13px;display:flex;gap:11px;align-items:center;box-shadow:0 10px 26px rgba(0,0,0,.16);text-align:left}
+  .notif .ic{width:38px;height:38px;border-radius:11px;background:var(--lime);display:flex;align-items:center;justify-content:center;font-size:19px;flex:0 0 auto}
+  .crumbs{font-size:10px;color:var(--muted);letter-spacing:.4px;text-transform:uppercase;font-weight:700;margin-bottom:7px}
+</style>
+</head>
+<body>
+  <h1 class="title">GoLemon Food Prep — Your meal plan</h1>
+  <p class="sub">Sprint 1 · matched to the live GoLemon app · a proper plan across breakfast / lunch / dinner (+ dessert) for the days the basket covers · every meal shows its cook time · fonts: Plus Jakarta Sans + IBM Plex Sans</p>
+  <div class="legend">
+    <span class="sw"><i style="background:#1E7A3C"></i>Green — primary action</span>
+    <span class="sw"><i style="background:#CDEE63"></i>Lime — brand accent / surprise</span>
+    <span class="sw"><i style="background:#FDE7E0"></i>Cook in 2 days</span>
+    <span class="sw"><i style="background:#FBEFD6"></i>Use by day 5</span>
+    <span class="sw"><i style="background:#E7F4E6"></i>Covers ~5 days</span>
+  </div>
+
+  <div class="grid">
+
+    <!-- 0A PRE-PERMISSION (view framing) -->
+    <div>
+      <div class="cap">0A · Pre-permission priming <span>— before OS dialog</span></div>
+      <div class="phone"><div class="notch"></div>
+        <div class="status"><span>9:41</span><span>＋ ⓦ ▥</span></div>
+        <div class="scr"><div class="pad" style="display:flex;flex-direction:column;height:100%">
+          <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:18px">
+            <div class="brandrow">GoLemon 💚</div>
+            <div class="h-lg">Your week of meals,<br>ready the moment your<br>basket lands.</div>
+            <p class="small" style="line-height:1.6">We plan it for you from your delivery — breakfast, lunch and dinner. We'll send one gentle nudge when it's ready. No spam. Turn it off anytime.</p>
+            <div class="notif">
+              <div class="ic">🍋</div>
+              <div><div style="font-size:12px;font-weight:700;color:var(--green-deep)">GoLemon</div>
+              <div style="font-size:11.5px;color:var(--slate)">Your basket is home. Your meal plan's ready. 🍋</div></div>
+            </div>
+          </div>
+          <div style="padding-bottom:6px">
+            <button class="btn primary" style="margin-bottom:9px">Allow notifications</button>
+            <button class="btn outline">Maybe later</button>
+          </div>
+        </div></div>
+      </div>
+    </div>
+
+    <!-- 0B INTRO -->
+    <div>
+      <div class="cap">0B · First-ever intro <span>— 2s, auto-dissolves</span></div>
+      <div class="phone"><div class="notch"></div>
+        <div class="status" style="color:#fff"><span>9:41</span><span>＋ ⓦ ▥</span></div>
+        <div class="scr">
+          <div class="full-dark">
+            <div style="font-size:50px;margin-bottom:18px">🧺</div>
+            <div class="big">We've planned your week<br>from today's delivery.</div>
+            <p style="color:#B7D6A8;font-size:14px;margin-top:14px;line-height:1.6">Breakfast, lunch and dinner.<br>No logging. Just what arrived. 🍋</p>
+            <div style="position:absolute;bottom:30px;display:flex;gap:6px">
+              <span style="width:7px;height:7px;border-radius:50%;background:var(--lime)"></span>
+              <span style="width:7px;height:7px;border-radius:50%;background:#2A4D30"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COLD START -->
+    <div>
+      <div class="cap">Cold-start sheet <span>— users with &lt;4 orders</span></div>
+      <div class="phone"><div class="notch"></div>
+        <div class="status"><span>9:41</span><span>＋ ⓦ ▥</span></div>
+        <div class="scr">
+          <div class="pad" style="filter:blur(1.5px);opacity:.55">
+            <div class="appbar" style="padding-left:0"><div class="brandrow">GoLemon 💚</div></div>
+            <div class="h-lg">Your meal plan</div>
+            <div class="cover" style="margin-top:12px"><span class="em">🗓️</span><div><b>Covers about 5 days</b></div></div>
+          </div>
+          <div class="overlay" style="align-items:flex-end">
+            <div class="sheet">
+              <div class="grab"></div>
+              <div class="h-md" style="margin-bottom:5px">Before we plan your meals —</div>
+              <p class="small" style="margin-bottom:14px">how many are you feeding?</p>
+              <div class="opt" style="background:#fff;border:1.4px solid var(--line);color:var(--ink)">Just me</div>
+              <div class="opt" style="background:var(--green);color:#fff">2–3 people</div>
+              <div class="opt" style="background:#fff;border:1.4px solid var(--line);color:var(--ink)">4 or more</div>
+              <div class="opt" style="color:var(--muted)">Skip for now</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 1 YOUR MEAL PLAN (the proper plan) -->
+    <div>
+      <div class="cap">1 · Your meal plan <span>— B/L/D + dessert, the days the basket covers</span></div>
+      <div class="phone"><div class="notch"></div>
+        <div class="status"><span>9:41</span><span>＋ ⓦ ▥</span></div>
+        <div class="scr">
+          <div class="pad" style="padding-bottom:84px;overflow:hidden">
+            <div class="appbar" style="padding-left:0;padding-top:8px"><div class="brandrow">GoLemon 💚</div></div>
+            <div class="h-lg" style="margin-bottom:8px">Your meal plan</div>
+            <div class="cover"><span class="em">🗓️</span><div><b>This basket covers about 5 days</b><div class="small">14 items · breakfast, lunch &amp; dinner</div></div></div>
+            <div class="firsthint"><span style="font-size:15px">⏱️</span><div class="small"><b>Start with your ugu &amp; titus</b> — freshest for the next 2 days, so they lead the early meals.</div></div>
+
+            <div class="daycard">
+              <div class="dayhdr"><span class="dayname">Day 1</span><span class="daypill">Today</span><span class="daysub">3 meals</span></div>
+              <div class="meal"><div class="slot s-b">🌅</div><div class="mealbody"><div class="slotlabel">Breakfast</div><div class="mealname">Bread &amp; egg sauce</div><div class="mealmeta"><span class="dur">⏱ 15 min</span></div></div><span class="chev">›</span></div>
+              <div class="meal"><div class="slot s-l">☀️</div><div class="mealbody"><div class="slotlabel">Lunch</div><div class="mealname">Jollof rice &amp; titus</div><div class="mealmeta"><span class="dur">⏱ 45 min</span><span class="mtag red">titus · today</span></div></div><span class="chev">›</span></div>
+              <div class="meal"><div class="slot s-d">🌙</div><div class="mealbody"><div class="slotlabel">Dinner</div><div class="mealname">Egusi soup &amp; eba</div><div class="mealmeta"><span class="dur">⏱ 30 min</span><span class="mtag red">ugu · 2 days</span></div></div><span class="chev">›</span></div>
+            </div>
+
+            <div class="daycard">
+              <div class="dayhdr"><span class="dayname">Day 2</span><span class="daysub">+ dessert</span></div>
+              <div class="meal"><div class="slot s-b">🌅</div><div class="mealbody"><div class="slotlabel">Breakfast</div><div class="mealname">Plantain &amp; egg</div><div class="mealmeta"><span class="dur">⏱ 15 min</span></div></div><span class="chev">›</span></div>
+              <div class="meal"><div class="slot s-l">☀️</div><div class="mealbody"><div class="slotlabel">Lunch</div><div class="mealname">Okra soup &amp; semo</div><div class="mealmeta"><span class="dur">⏱ 20 min</span><span class="mtag amber">okra · 4 days</span></div></div><span class="chev">›</span></div>
+              <div class="meal"><div class="slot s-x">🍰</div><div class="mealbody"><div class="slotlabel">Dessert</div><div class="mealname">Sliced pineapple</div><div class="mealmeta"><span class="dur">⏱ 5 min</span></div></div><span class="chev">›</span></div>
+            </div>
+          </div>
+          <div class="footer-cta"><button class="btn primary">Cook tonight's dinner&nbsp;&nbsp;→</button></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2 MEAL DETAIL / RECIPE -->
+    <div>
+      <div class="cap">2 · Meal detail <span>— tap any meal · duration + recipe + swap</span></div>
+      <div class="phone"><div class="notch"></div>
+        <div class="status"><span>9:41</span><span>＋ ⓦ ▥</span></div>
+        <div class="scr">
+          <div class="pad" style="padding-bottom:84px;overflow:hidden">
+            <div class="appbar" style="padding-left:0;padding-top:8px;gap:8px">
+              <div class="back">←</div><div class="brandrow" style="font-size:15px">Day 1 · Dinner</div>
+            </div>
+            <div class="thumbimg" style="background:var(--t-mint)">
+              <span class="pill" style="background:var(--coral-bg);color:var(--coral-ink);box-shadow:none">⏱ Uses your ugu — 2 days left</span>
+            </div>
+            <div class="h-lg" style="font-size:20px">Egusi soup &amp; eba</div>
+            <div style="display:flex;gap:8px;margin:9px 0 12px">
+              <span class="pill"><span class="dots"><span class="d"></span><span class="d"></span><span class="o"></span></span>&nbsp;Easy-ish</span>
+              <span class="pill">⏱ 30 min active</span>
+            </div>
+            <div class="step"><span class="n">1</span><span>Heat palm oil 1 min. Add onions, stir till see-through.</span></div>
+            <div class="step"><span class="n">2</span><span>Pour in egusi. Stir 2–3 min till it smells nutty.</span></div>
+            <div class="step"><span class="n">3</span><span>Add beef + ½ cup water. Lid on, low heat, 10 min.</span></div>
+            <div class="thumbs" style="margin-top:4px"><div class="tb on">👍 Looks good</div><div class="tb">👎 Not for me</div></div>
+          </div>
+          <div class="footer-cta" style="background:linear-gradient(180deg,rgba(243,247,234,0),var(--bg) 22%)">
+            <button class="btn primary" style="margin-bottom:8px">🔔&nbsp; Set a reminder</button>
+            <button class="btn outline" style="height:42px;font-size:13px">Swap this meal</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SURPRISE / NEW COMBO detail -->
+    <div>
+      <div class="cap">Swap → "New combo" <span>— the surprise meal</span></div>
+      <div class="phone"><div class="notch"></div>
+        <div class="status"><span>9:41</span><span>＋ ⓦ ▥</span></div>
+        <div class="scr">
+          <div class="pad" style="padding-bottom:84px;overflow:hidden">
+            <div class="appbar" style="padding-left:0;padding-top:8px;gap:8px">
+              <div class="back">←</div><div class="brandrow" style="font-size:15px">Day 2 · Lunch</div>
+            </div>
+            <div class="thumbimg" style="background:var(--t-blue)"><span class="badge">New combo</span></div>
+            <div class="h-lg" style="font-size:20px">Plantain porridge</div>
+            <div style="display:flex;gap:8px;margin:9px 0 10px">
+              <span class="pill"><span class="dots"><span class="d"></span><span class="o"></span><span class="o"></span></span>&nbsp;Easy</span>
+              <span class="pill">⏱ 25 min</span>
+            </div>
+            <p class="xsmall" style="background:var(--cream-bg);color:var(--cream-ink);padding:9px 12px;border-radius:13px;line-height:1.5;margin-bottom:12px">
+              <b>New combo:</b> most people buy ripe plantain to fry it — this turns it into a savoury porridge using the same plantain.</p>
+            <div class="step"><span class="n">1</span><span>Heat palm oil. Add onion, stir 1 min.</span></div>
+            <div class="step"><span class="n">2</span><span>Add blended tomato-pepper. Fry 5 min.</span></div>
+            <div class="thumbs" style="margin-top:2px"><div class="tb">👍 Looks good</div><div class="tb">👎 Not for me</div></div>
+          </div>
+          <div class="footer-cta" style="background:linear-gradient(180deg,rgba(243,247,234,0),var(--bg) 22%)">
+            <button class="btn primary">Use this for Day 2 lunch</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- REMINDER CONFIRM -->
+    <div>
+      <div class="cap">Reminder confirm <span>— time picked</span></div>
+      <div class="phone"><div class="notch"></div>
+        <div class="status"><span>9:41</span><span>＋ ⓦ ▥</span></div>
+        <div class="scr">
+          <div class="pad" style="filter:blur(1.5px);opacity:.55">
+            <div class="appbar" style="padding-left:0"><div class="back">←</div><div class="brandrow" style="font-size:15px">Day 1 · Dinner</div></div>
+            <div class="h-lg" style="font-size:20px;margin-top:8px">Egusi soup &amp; eba</div>
+          </div>
+          <div class="overlay">
+            <div class="sheet" style="text-align:center">
+              <div class="grab"></div>
+              <div style="width:64px;height:64px;border-radius:50%;background:var(--mintg-bg);display:flex;align-items:center;justify-content:center;font-size:30px;margin:6px auto 14px">✅</div>
+              <div class="h-md" style="margin-bottom:6px">Done. We'll remind you at 6:30 PM.</div>
+              <p class="small" style="margin-bottom:16px">Tap the reminder and tonight's recipe opens right here.</p>
+              <button class="btn primary">Got it</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DID YOU COOK -->
+    <div>
+      <div class="cap">"Did you cook?" <span>— start of next session</span></div>
+      <div class="phone"><div class="notch"></div>
+        <div class="status"><span>9:41</span><span>＋ ⓦ ▥</span></div>
+        <div class="scr">
+          <div class="pad" style="filter:blur(1.5px);opacity:.55">
+            <div class="appbar" style="padding-left:0"><div class="brandrow">GoLemon 💚</div></div>
+            <div class="h-lg">Your meal plan</div>
+            <div class="cover" style="margin-top:12px"><span class="em">🗓️</span><div><b>Covers about 5 days</b></div></div>
+          </div>
+          <div class="overlay">
+            <div class="sheet">
+              <div class="grab"></div>
+              <div class="crumbs">Quick check-in</div>
+              <div class="h-md" style="margin-bottom:4px;line-height:1.3">Last time, tonight's plan<br>was egusi soup.</div>
+              <p class="small" style="margin-bottom:14px">Did you cook it?</p>
+              <div class="opt" style="background:var(--green);color:#fff">Yes, I made it ✓</div>
+              <div class="opt" style="background:#fff;border:1.4px solid var(--line)">Not this time</div>
+              <div class="opt" style="color:var(--muted)">Skip</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LOVEMARK -->
+    <div>
+      <div class="cap">Lovemark <span>— after "Yes, I cooked"</span></div>
+      <div class="phone"><div class="notch"></div>
+        <div class="status" style="color:#fff"><span>9:41</span><span>＋ ⓦ ▥</span></div>
+        <div class="scr">
+          <div class="full-dark">
+            <div style="width:118px;height:118px;border-radius:22px;background:rgba(205,238,99,.14);display:flex;align-items:center;justify-content:center;font-size:46px;margin-bottom:18px">🍲</div>
+            <div class="big">You turned your delivery<br>into dinner.</div>
+            <p style="color:#B7D6A8;font-size:14px;margin-top:14px;line-height:1.6">That's what GoLemon is for.</p>
+            <div style="margin-top:24px;background:rgba(205,238,99,.12);border:1px solid rgba(205,238,99,.32);border-radius:15px;padding:12px 16px">
+              <span style="color:var(--lime);font-weight:700;font-size:13px">3 meals from GoLemon · 6 days of food you didn't waste 💚</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXPIRED -->
+    <div>
+      <div class="cap">Expired plan <span>— deep link &gt; 48h</span></div>
+      <div class="phone"><div class="notch"></div>
+        <div class="status"><span>9:41</span><span>＋ ⓦ ▥</span></div>
+        <div class="scr"><div class="pad" style="display:flex;flex-direction:column;height:100%">
+          <div class="appbar" style="padding-left:0;padding-top:8px"><div class="brandrow">GoLemon 💚</div></div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:14px">
+            <div style="width:96px;height:96px;border-radius:50%;background:#fff;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:center;font-size:42px">🍋</div>
+            <div class="h-md" style="font-size:18px">This meal plan expired.</div>
+            <p class="small" style="max-width:210px;line-height:1.6">Your next delivery will come with a fresh one. Good food doesn't wait. 🍋</p>
+          </div>
+          <div style="padding-bottom:6px"><button class="btn outline">See your last order&nbsp;&nbsp;→</button></div>
+        </div></div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
