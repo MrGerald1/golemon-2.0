@@ -1,0 +1,17 @@
+{
+  "name": "golemon-foodprep",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "GoLemon Food Prep — post-order accountability meal-plan system (implements the CEO/eng/design reviews)",
+  "scripts": {
+    "start": "node src/server.js",
+    "seed": "node src/seed.js",
+    "validate": "node scripts/validate-recipes.mjs",
+    "pretest": "node scripts/validate-recipes.mjs",
+    "test": "node test/run.mjs"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

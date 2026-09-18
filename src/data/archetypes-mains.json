@@ -1,0 +1,790 @@
+[
+  {
+    "id": "ARC-01",
+    "name": "Egusi soup",
+    "meal_slot": "lunch",
+    "serves": 4,
+    "required_categories": ["egusi_seeds", "fresh_leafy_green", "palm_oil", "dried_crayfish"],
+    "optional_categories": ["proteins_beef_or_kpomo", "fresh_pepper", "onions"],
+    "is_surprise": false,
+    "difficulty": {
+      "score": 3,
+      "label": "Intermediate",
+      "drivers": [
+        "Egusi scorches fast if the heat is too high — it needs watching",
+        "Two things run at once: the meat boils while you build the egusi",
+        "Getting the 'fried, not raw' egusi texture takes a little judgement"
+      ]
+    },
+    "time": {
+      "prep_min": 12,
+      "active_cook_min": 18,
+      "passive_min": 40,
+      "total_min": 70,
+      "overlap_note": "Do the grinding and chopping while the meat boils — real time on your feet is closer to 45-50 min.",
+      "make_ahead": ["Grind the egusi", "Boil the beef the night before and refrigerate"]
+    },
+    "equipment": ["Blender or dry mill (unless egusi is pre-ground)", "Two pots", "Wooden spoon"],
+    "ingredients": [
+      { "item": "Egusi (melon seeds)", "qty": "2 cups", "prep": "Ground to a coarse powder. Buy it pre-ground, or blend the dry seeds in a dry mill until it looks like damp sand. You do NOT pour whole seeds into the pot.", "substitutes": [] },
+      { "item": "Beef, chicken, or kpomo", "qty": "500g", "prep": "Cut into pieces. Beef needs ~40 min to get tender; kpomo ~20 min.", "substitutes": ["stockfish", "shaki (tripe)"] },
+      { "item": "Ugu or bitter leaf", "qty": "1 bunch", "prep": "Wash and tear by hand into small pieces. If bitter leaf, squeeze it in 2-3 changes of water first.", "substitutes": ["spinach", "waterleaf"] },
+      { "item": "Palm oil", "qty": "1/4 cup", "prep": "", "substitutes": [] },
+      { "item": "Dried crayfish", "qty": "2 tbsp", "prep": "Ground", "substitutes": [] },
+      { "item": "Onion", "qty": "1 medium", "prep": "Sliced", "substitutes": [] },
+      { "item": "Stock cube + salt", "qty": "1 cube + to taste", "prep": "", "substitutes": [] }
+    ],
+    "steps": [
+      { "action": "Season the meat with half the onion, a stock cube and salt, then boil with just enough water to cover it until tender. Keep the meat stock — don't throw it away.", "duration_min": 40, "cue": "A fork slides into the beef with no resistance.", "why": "Tough Nigerian beef will never soften inside the soup later — it has to be cooked through first. This is the step the old recipe skipped, which is why its timing was wrong.", "watch_out": "Start this first and do all the prep below while it boils." },
+      { "action": "Grind the egusi to a coarse powder if it isn't already ground.", "duration_min": 3, "cue": "Texture of coarse, slightly damp sand — not a smooth paste.", "why": "Whole melon seeds can't thicken the soup. Milling them is what makes egusi 'egusi'.", "watch_out": "Don't over-blend or the oil comes out and it turns to paste. Pulse it." },
+      { "action": "Heat the palm oil in a clean pot on medium for 1 minute, add the sliced onion and stir until see-through (translucent, soft, not browned).", "duration_min": 3, "cue": "Onion goes glassy and soft, about 3 minutes.", "why": "Softening the onion first builds the base flavour.", "watch_out": "Palm oil should shimmer, not smoke. If it smokes, it's too hot — take it off the heat for 30 seconds." },
+      { "action": "Add the ground egusi to the oil and stir constantly. It will clump — that's correct. Keep stirring as it toasts.", "duration_min": 4, "cue": "It smells nutty and the colour deepens slightly, about 3-4 minutes.", "why": "Toasting the egusi in oil is what gives the soup its signature flavour and stops it tasting raw and floury.", "watch_out": "This is the scorch point. The moment it smells burnt instead of nutty, drop the heat — burnt egusi can't be saved." },
+      { "action": "Pour in the reserved meat stock a little at a time, stirring the egusi clumps into it. Add the cooked meat. Cover and simmer on low.", "duration_min": 10, "cue": "The egusi softens and small balls of it float in a thickened broth.", "why": "Adding the hot stock gradually keeps the egusi in soft lumps instead of one dense mass.", "watch_out": "Too thick? Add more stock or water. Too thin? Simmer uncovered a few minutes." },
+      { "action": "Stir in the ground crayfish and taste for salt.", "duration_min": 1, "cue": "It tastes savoury and slightly smoky.", "why": "Crayfish is the umami backbone. Season at the end so you don't over-salt.", "watch_out": "" },
+      { "action": "Add the torn ugu or bitter leaf, stir once, cover for 2 minutes, then turn off the heat.", "duration_min": 2, "cue": "The greens wilt but stay green.", "why": "Greens cook in residual heat. Boiling them dulls the colour and flavour.", "watch_out": "Don't cook the leaves long — they only need to wilt." }
+    ],
+    "doneness_signature": "Thick, nutty soup with soft egusi lumps, a film of red palm oil on top, and bright-green wilted leaves.",
+    "rescue": [
+      { "problem": "The egusi tastes burnt", "fix": "There's no recovery — burnt egusi flavours the whole pot. Start the egusi step again with fresh ground egusi and add it to the existing broth." },
+      { "problem": "Soup is too oily", "fix": "Skim the excess palm oil off the top with a spoon, or simmer uncovered to cook some of it down." },
+      { "problem": "Soup is bland", "fix": "Add more crayfish and a little salt, not just stock cube. The savoury depth comes from crayfish." }
+    ],
+    "level_up": [
+      { "touch": "Smoky depth", "how": "Add a small piece of stockfish or smoked fish to the meat while it boils." },
+      { "touch": "Restaurant richness", "how": "Stir in a teaspoon of ground ogiri or iru (locust bean) with the crayfish." }
+    ],
+    "active_minutes": 70,
+    "difficulty_dots": 3
+  },
+  {
+    "id": "ARC-02",
+    "name": "Jollof rice",
+    "meal_slot": "lunch",
+    "serves": 4,
+    "required_categories": ["parboiled_rice", "fresh_tomato_family", "any_protein", "alliums"],
+    "optional_categories": ["tatashe_bell_pepper", "tomato_paste", "carrots"],
+    "is_surprise": false,
+    "difficulty": {
+      "score": 2,
+      "label": "Simple",
+      "drivers": [
+        "One main technique: frying the tomato base until the rawness goes",
+        "Forgiving — the main risk is rice cooking unevenly, fixed by low heat"
+      ]
+    },
+    "time": {
+      "prep_min": 10,
+      "active_cook_min": 25,
+      "passive_min": 30,
+      "total_min": 65,
+      "overlap_note": "The protein boils while you blend and fry the base.",
+      "make_ahead": ["Blend the tomato-pepper mix", "Pre-cook the protein"]
+    },
+    "equipment": ["Blender", "Heavy pot with a tight lid", "Foil"],
+    "ingredients": [
+      { "item": "Parboiled rice", "qty": "2 cups", "prep": "Washed in cold water until the water runs clear.", "substitutes": [] },
+      { "item": "Tomatoes + scotch bonnet peppers", "qty": "4 tomatoes + 2 peppers", "prep": "Blended together smooth.", "substitutes": ["tinned plum tomatoes + tomato paste"] },
+      { "item": "Chicken or beef", "qty": "500g", "prep": "Seasoned and cut into pieces.", "substitutes": ["turkey"] },
+      { "item": "Onion", "qty": "1 large", "prep": "Sliced", "substitutes": [] },
+      { "item": "Vegetable or groundnut oil", "qty": "3 tbsp", "prep": "", "substitutes": [] },
+      { "item": "Stock cube, salt, curry powder", "qty": "1 cube + salt + 1 tsp curry", "prep": "", "substitutes": [] }
+    ],
+    "steps": [
+      { "action": "Season the protein with some onion, a stock cube and salt, then cook in a pot with a little water until done. Set the meat aside and KEEP the stock water.", "duration_min": 20, "cue": "Chicken ~15 min, beef ~30-40 min, until tender.", "why": "The stock water carries flavour straight into the rice. This is the secret to jollof that isn't bland.", "watch_out": "Don't let it boil dry — keep a cup of stock at the end." },
+      { "action": "In a dry pot, heat the oil for 1 minute, add half the sliced onion and fry until golden.", "duration_min": 3, "cue": "Onions turn golden, about 3 minutes.", "why": "Golden onions sweeten and deepen the base.", "watch_out": "Don't blacken them — golden, not burnt." },
+      { "action": "Pour in the blended tomato-pepper mix. Let it FRY (not boil) on medium, stirring every 2 minutes, until the raw tomato smell is gone and it darkens.", "duration_min": 12, "cue": "The mix thickens, darkens to a deep red, and oil starts to show at the edges.", "why": "Frying out the raw tomato is the single thing that separates real jollof from tomato-rice. Don't shortcut it.", "watch_out": "It will splatter. Pour slowly and lower the heat if it spits." },
+      { "action": "Add the reserved stock water, curry, and taste for salt. Then add the washed rice and stir so every grain is coated. Liquid should sit just above the rice.", "duration_min": 3, "cue": "Liquid level is roughly 1cm above the rice.", "why": "Too much liquid = mushy; too little = crunchy. Just above the rice is right.", "watch_out": "Add water, not more stock, if you misjudge — the base is already seasoned." },
+      { "action": "Cover with foil then the lid, and cook on the LOWEST heat. Check at 25 minutes.", "duration_min": 27, "cue": "Rice is soft with no chalky crunch in the centre of a grain.", "why": "Foil traps steam so the top layer cooks; lowest heat lets it steam without burning the bottom.", "watch_out": "Resist stirring early — it breaks the grains. A little crust at the bottom (the 'party jollof' bottom) is a feature, not a fault." }
+    ],
+    "doneness_signature": "Each grain separate, deep orange-red, smoky, with the rice tender all the way through.",
+    "rescue": [
+      { "problem": "Rice is crunchy but liquid is gone", "fix": "Sprinkle 1/4 cup hot water over the top, cover, and steam on the lowest heat 8-10 more minutes." },
+      { "problem": "Rice is mushy", "fix": "Take the lid off and cook on low to dry it out, fluffing gently with a fork." },
+      { "problem": "Bottom is burning", "fix": "Don't stir the burnt part up. Move the pot to the lowest heat or off the flame, lid on, and let the steam finish it." }
+    ],
+    "level_up": [
+      { "touch": "Party-jollof smokiness", "how": "In the last 10 minutes, let the bottom catch very slightly on low heat for that charred 'bottom pot' flavour." },
+      { "touch": "Colour and sweetness", "how": "Add a blended red bell pepper (tatashe) to the base — brighter red, milder, sweeter." }
+    ],
+    "active_minutes": 65,
+    "difficulty_dots": 2
+  },
+  {
+    "id": "ARC-03",
+    "name": "Fried rice",
+    "meal_slot": "lunch",
+    "serves": 4,
+    "required_categories": ["parboiled_rice", "carrots", "green_beans", "any_protein", "alliums"],
+    "optional_categories": ["fresh_corn", "cabbage", "eggs"],
+    "is_surprise": false,
+    "difficulty": {
+      "score": 3,
+      "label": "Intermediate",
+      "drivers": [
+        "Timing: the rice must be cooked ahead and cooled, or it turns to mush",
+        "High-heat stir-frying needs you to keep things moving",
+        "Several components prepped and added in the right order"
+      ]
+    },
+    "time": {
+      "prep_min": 15,
+      "active_cook_min": 15,
+      "passive_min": 20,
+      "total_min": 50,
+      "overlap_note": "Boil and cool the rice ahead of time; the stir-fry itself is fast.",
+      "make_ahead": ["Boil the rice and spread it to cool (even the night before)", "Cook the protein"]
+    },
+    "equipment": ["Wide pan or wok", "Wide plate or tray for cooling rice"],
+    "ingredients": [
+      { "item": "Parboiled rice", "qty": "2 cups", "prep": "Boiled in salted water until JUST cooked, drained, and spread out to cool completely.", "substitutes": [] },
+      { "item": "Carrots", "qty": "2", "prep": "Diced small", "substitutes": [] },
+      { "item": "Green beans", "qty": "1 handful", "prep": "Cut into small pieces", "substitutes": ["green peas"] },
+      { "item": "Chicken or beef", "qty": "500g", "prep": "Seasoned and fried or grilled separately, then diced.", "substitutes": ["liver", "shrimp"] },
+      { "item": "Onion", "qty": "1 medium", "prep": "Diced", "substitutes": [] },
+      { "item": "Vegetable oil", "qty": "2 tbsp", "prep": "", "substitutes": [] },
+      { "item": "Soy sauce", "qty": "1 tbsp", "prep": "", "substitutes": [] },
+      { "item": "Salt + stock cube", "qty": "to taste", "prep": "", "substitutes": [] }
+    ],
+    "steps": [
+      { "action": "Boil the rice in salted water until just cooked — still firm, not soft. Drain and spread it on a wide plate to cool completely.", "duration_min": 20, "cue": "Grains are cooked through but still firm; fully cool to the touch before frying.", "why": "Warm, wet rice steams and clumps in the pan. Cool, dry rice fries into separate grains. This is the whole secret to fried rice.", "watch_out": "Under-boil slightly rather than over — it cooks more in the pan." },
+      { "action": "Heat the oil in a wide pan or wok on HIGH heat, add the onion and stir for 1 minute.", "duration_min": 2, "cue": "Onion sizzles loudly the moment it hits the pan.", "why": "High heat is what gives stir-fry its flavour. A cool pan steams the vegetables.", "watch_out": "Keep everything moving on high heat so nothing scorches." },
+      { "action": "Add the carrots and green beans. Stir-fry on high for 3-4 minutes.", "duration_min": 4, "cue": "Vegetables are bright and still have a slight crunch.", "why": "Quick high-heat cooking keeps colour and bite.", "watch_out": "Don't cook them soft and grey — they should stay vivid." },
+      { "action": "Add the cooled rice. Stir-fry, lifting and tossing, for 2-3 minutes so every grain gets oil.", "duration_min": 3, "cue": "Grains separate and glisten.", "why": "Tossing coats the grains and reheats them without making them wet.", "watch_out": "If it clumps, your rice was too warm — break clumps gently with the back of the spoon." },
+      { "action": "Add soy sauce, taste, and adjust with stock cube and salt. Stir in the cooked protein and heat through for 1 minute.", "duration_min": 2, "cue": "Even colour, savoury taste, protein hot.", "why": "Adding protein last keeps it from drying out.", "watch_out": "Soy sauce is salty — taste before adding more salt." }
+    ],
+    "doneness_signature": "Separate, glossy grains flecked with bright vegetables, evenly coloured, savoury and hot.",
+    "rescue": [
+      { "problem": "Rice is mushy and clumping", "fix": "Spread it out on a tray off the heat to release steam, then return to the hot pan in batches." },
+      { "problem": "Too pale / bland", "fix": "A little more soy sauce and stock cube. Colour comes from soy, not water." }
+    ],
+    "level_up": [
+      { "touch": "Restaurant aroma", "how": "Add a clove of minced garlic and a thumb of grated ginger with the onion." },
+      { "touch": "Extra body", "how": "Push the rice aside, scramble an egg in the empty space, then fold it through." }
+    ],
+    "active_minutes": 50,
+    "difficulty_dots": 3
+  },
+  {
+    "id": "ARC-04",
+    "name": "Efo riro (Nigerian vegetable soup)",
+    "meal_slot": "dinner",
+    "serves": 4,
+    "required_categories": ["fresh_leafy_green", "fresh_tomato_family", "palm_oil", "alliums"],
+    "optional_categories": ["proteins_beef_or_kpomo", "dried_crayfish", "fresh_pepper"],
+    "is_surprise": false,
+    "difficulty": {
+      "score": 2,
+      "label": "Simple",
+      "drivers": [
+        "One judgement call: frying the pepper base until the oil floats",
+        "Forgiving — the main rule is don't overcook the greens"
+      ]
+    },
+    "time": {
+      "prep_min": 12,
+      "active_cook_min": 18,
+      "passive_min": 10,
+      "total_min": 40,
+      "overlap_note": "Pre-cook tough proteins like kpomo or stockfish while you blend and shred.",
+      "make_ahead": ["Blend the tomato-pepper", "Pre-cook kpomo/stockfish"]
+    },
+    "equipment": ["Blender", "Pot"],
+    "ingredients": [
+      { "item": "Ugu or spinach", "qty": "2 large bunches", "prep": "Washed well and shredded.", "substitutes": ["shoko (Lagos spinach)", "kale"] },
+      { "item": "Tomatoes + peppers", "qty": "4 + 2", "prep": "Blended together (leave it slightly chunky for texture).", "substitutes": ["tinned tomato + fresh pepper"] },
+      { "item": "Palm oil", "qty": "1/4 cup", "prep": "", "substitutes": [] },
+      { "item": "Onion", "qty": "1 medium", "prep": "Sliced", "substitutes": [] },
+      { "item": "Protein (kpomo, beef, chicken, stockfish)", "qty": "to taste", "prep": "Pre-cooked if tough.", "substitutes": [] },
+      { "item": "Crayfish + stock cube + salt", "qty": "1 tbsp + 1 cube + to taste", "prep": "Crayfish ground.", "substitutes": [] }
+    ],
+    "steps": [
+      { "action": "If using kpomo or stockfish, pre-cook it in salted water until soft. Set aside.", "duration_min": 10, "cue": "Kpomo is soft and chewy, not rubbery.", "why": "These never soften in the soup itself.", "watch_out": "Skip this step if your protein is already tender." },
+      { "action": "Heat the palm oil in a pot, add the onion and fry 2 minutes until soft.", "duration_min": 2, "cue": "Onion soft and fragrant.", "why": "Base flavour.", "watch_out": "Don't smoke the palm oil." },
+      { "action": "Pour in the blended tomato-pepper. Fry on medium, stirring, until the oil floats to the top.", "duration_min": 9, "cue": "A clear film of red oil rises to the surface — the sign the rawness is cooked out.", "why": "The floating-oil cue is how every Nigerian cook knows the base is done. Trust it over the clock.", "watch_out": "It spits as it thickens — keep the heat at medium and stir." },
+      { "action": "Add the protein, crayfish and stock cube. Taste for salt and stir.", "duration_min": 2, "cue": "Savoury, well-seasoned base.", "why": "Season before the greens so you don't overwork them.", "watch_out": "" },
+      { "action": "Add the shredded greens, stir once, and cover for about 3 minutes. Then take off the heat.", "duration_min": 4, "cue": "Greens wilt but stay vivid green.", "why": "The green colour is the sign you cooked it right. Overcooking turns it khaki and flat.", "watch_out": "Spinach wilts faster than ugu — check at 2 minutes for spinach." }
+    ],
+    "doneness_signature": "Glossy red, oil-rich base studded with bright-green wilted leaves and tender protein.",
+    "rescue": [
+      { "problem": "Greens went grey/overcooked", "fix": "Can't reverse it, but stir in a small handful of fresh shredded greens off the heat for colour." },
+      { "problem": "Too watery", "fix": "Simmer uncovered a few minutes before adding the greens." }
+    ],
+    "level_up": [
+      { "touch": "Iru depth", "how": "Add a teaspoon of locust bean (iru) with the crayfish for a savoury, fermented note." },
+      { "touch": "Extra richness", "how": "Throw in a few cubes of pre-fried liver or ponmo at the end." }
+    ],
+    "active_minutes": 40,
+    "difficulty_dots": 2
+  },
+  {
+    "id": "ARC-05",
+    "name": "Ofe onugbu (bitter leaf soup)",
+    "meal_slot": "dinner",
+    "serves": 4,
+    "required_categories": ["bitter_leaf", "cocoyam", "palm_oil", "dried_crayfish"],
+    "optional_categories": ["stockfish", "any_protein", "ogiri_iru"],
+    "is_surprise": false,
+    "difficulty": {
+      "score": 4,
+      "label": "Involved",
+      "drivers": [
+        "Bitter leaf must be washed and squeezed many times or the soup is inedibly bitter",
+        "Cocoyam has to be boiled and pounded into a thickener — a whole sub-task",
+        "Several components and a long total time to coordinate"
+      ]
+    },
+    "time": {
+      "prep_min": 25,
+      "active_cook_min": 20,
+      "passive_min": 45,
+      "total_min": 90,
+      "overlap_note": "Boil the cocoyam and meat while you wash and squeeze the bitter leaf.",
+      "make_ahead": ["Wash and squeeze the bitter leaf", "Boil and pound the cocoyam", "Boil the meat/stockfish"]
+    },
+    "equipment": ["Two pots", "Mortar and pestle (or a blender for the cocoyam)"],
+    "ingredients": [
+      { "item": "Bitter leaf", "qty": "1 large bunch", "prep": "Washed and squeezed hard in 4-5 changes of water until only mildly bitter.", "substitutes": ["pre-washed packaged bitter leaf"] },
+      { "item": "Cocoyam corms", "qty": "4-5", "prep": "Boiled until soft (~30 min), peeled, and pounded to a smooth paste.", "substitutes": ["cocoyam flour (achi or ofor as alternative thickener)"] },
+      { "item": "Palm oil", "qty": "1/4 cup", "prep": "", "substitutes": [] },
+      { "item": "Crayfish", "qty": "2 tbsp", "prep": "Ground", "substitutes": [] },
+      { "item": "Stockfish and/or beef", "qty": "to taste", "prep": "Seasoned.", "substitutes": [] },
+      { "item": "Ogiri", "qty": "1 tsp", "prep": "", "substitutes": ["iru (locust bean)"] },
+      { "item": "Stock cube + salt", "qty": "1 cube + to taste", "prep": "", "substitutes": [] }
+    ],
+    "steps": [
+      { "action": "Wash the bitter leaf in 4-5 changes of water, squeezing hard each time. Taste a piece — it should be only slightly bitter, not harsh.", "duration_min": 12, "cue": "A leaf tastes mildly bitter, pleasant rather than punishing.", "why": "This is the make-or-break step. Under-washed bitter leaf ruins the whole pot. The old recipe hid this 12-minute task in the ingredient list.", "watch_out": "Pre-washed packaged bitter leaf skips most of this — just rinse it." },
+      { "action": "Boil the cocoyam corms until soft, peel them, and pound to a smooth, stretchy paste.", "duration_min": 30, "cue": "Paste is smooth and elastic with no lumps.", "why": "Pounded cocoyam is the traditional thickener — it gives the soup its body and pull.", "watch_out": "Lumps won't dissolve later, so pound thoroughly. A blender with a splash of water works too." },
+      { "action": "Boil the meat and stockfish with onion, stock cube and salt until tender. Keep the stock.", "duration_min": 15, "cue": "Meat is tender; stockfish is soft.", "why": "Builds the savoury base liquid.", "watch_out": "Overlaps with the steps above — run them together." },
+      { "action": "Add the palm oil to the stock and bring to a boil. Drop the pounded cocoyam in small lumps and stir to dissolve.", "duration_min": 10, "cue": "The lumps melt in and the soup thickens and turns glossy.", "why": "Boiling stock dissolves the cocoyam evenly into a thick body.", "watch_out": "Add cocoyam gradually — you can always add more to thicken, but you can't un-thicken easily." },
+      { "action": "Stir in the crayfish and ogiri, simmer 8-10 minutes.", "duration_min": 9, "cue": "Rich, earthy aroma; soup coats the spoon.", "why": "Ogiri gives onugbu its deep traditional flavour.", "watch_out": "" },
+      { "action": "Add the bitter leaf, cook 5 minutes, and taste.", "duration_min": 5, "cue": "Rich, earthy, and only pleasantly bitter.", "why": "The bitter leaf goes in near the end so it stays tender.", "watch_out": "Still too bitter? You under-washed in step 1 — there's no fix now except to dilute with more stock." }
+    ],
+    "doneness_signature": "Thick, dark, glossy soup with a deep earthy aroma and a clean, mild bitterness.",
+    "rescue": [
+      { "problem": "Too bitter", "fix": "Dilute with extra stock or water and re-season. Next time wash the leaf in more changes of water." },
+      { "problem": "Too thin", "fix": "Pound and add a little more cocoyam, or a teaspoon of cocoyam flour slaked in water." },
+      { "problem": "Lumpy from cocoyam", "fix": "Mash the lumps against the side of the pot and simmer until they melt in." }
+    ],
+    "level_up": [
+      { "touch": "Festive richness", "how": "Add a mix of assorted meats — shaki, ponmo, and dry fish — for a celebration-grade pot." }
+    ],
+    "active_minutes": 90,
+    "difficulty_dots": 4
+  },
+  {
+    "id": "ARC-06",
+    "name": "Beans and fried plantain",
+    "meal_slot": "dinner",
+    "serves": 4,
+    "required_categories": ["dried_beans_honey_beans", "ripe_plantain", "palm_oil"],
+    "optional_categories": ["alliums", "dried_crayfish", "fresh_pepper"],
+    "is_surprise": false,
+    "difficulty": {
+      "score": 2,
+      "label": "Simple",
+      "drivers": [
+        "Mostly hands-off, but the beans take a long time to soften",
+        "Frying plantain needs the right ripeness and a watchful eye"
+      ]
+    },
+    "time": {
+      "prep_min": 8,
+      "active_cook_min": 17,
+      "passive_min": 45,
+      "total_min": 70,
+      "overlap_note": "Fry the plantain while the beans simmer.",
+      "make_ahead": ["Soak the beans 30+ min to cut cooking time"]
+    },
+    "equipment": ["Pot", "Frying pan"],
+    "ingredients": [
+      { "item": "Honey beans", "qty": "2 cups", "prep": "Washed; soak 30 min if you have time — it speeds cooking.", "substitutes": ["brown/oloyin beans", "black-eyed beans"] },
+      { "item": "Ripe plantains", "qty": "2", "prep": "Yellow-with-black-spots for sweetness. Peeled and sliced.", "substitutes": [] },
+      { "item": "Palm oil", "qty": "1/4 cup", "prep": "", "substitutes": [] },
+      { "item": "Onion", "qty": "1 medium", "prep": "Sliced", "substitutes": [] },
+      { "item": "Crayfish", "qty": "1 tbsp", "prep": "Ground", "substitutes": [] },
+      { "item": "Salt + stock cube", "qty": "to taste", "prep": "", "substitutes": [] }
+    ],
+    "steps": [
+      { "action": "Boil the beans with the onion in plenty of water until soft.", "duration_min": 45, "cue": "A bean squashes easily between two fingers.", "why": "Beans must be fully soft before seasoning — salt added too early keeps them hard.", "watch_out": "Top up with hot water if it dries out. Soaked beans cook faster." },
+      { "action": "When soft, drain off most of the water leaving about 1 cup. Add palm oil, crayfish, stock cube and salt. Simmer 10 minutes.", "duration_min": 10, "cue": "Thick, porridge-like, glossy with palm oil.", "why": "Now that the beans are soft, the seasoning soaks in.", "watch_out": "Stir so it doesn't catch on the bottom." },
+      { "action": "While the beans simmer, peel and slice the plantains on the diagonal.", "duration_min": 3, "cue": "Even slices fry evenly.", "why": "Diagonal slices give more golden surface.", "watch_out": "" },
+      { "action": "Heat 2 tbsp oil in a pan and fry the plantain slices until golden-brown on each side. Salt lightly.", "duration_min": 6, "cue": "Deep golden, caramelised edges, soft inside.", "why": "Ripe plantain caramelises — that sweetness is the point.", "watch_out": "Medium heat — too hot burns the outside before the inside softens." },
+      { "action": "Serve the beans with the fried plantain alongside.", "duration_min": 1, "cue": "", "why": "The sweet plantain balances the earthy beans.", "watch_out": "" }
+    ],
+    "doneness_signature": "Soft, glossy, palm-oil-rich beans next to sweet, deep-golden fried plantain.",
+    "rescue": [
+      { "problem": "Beans still hard after a long time", "fix": "Keep simmering with hot water; never add salt or cold water while they're hardening. A pinch of baking soda speeds it up." },
+      { "problem": "Plantain burning before it softens", "fix": "Lower the heat and give it more time per side." }
+    ],
+    "level_up": [
+      { "touch": "Porridge-style", "how": "Mash some of the beans and add a blended pepper-tomato mix to turn it into a richer beans porridge." }
+    ],
+    "active_minutes": 70,
+    "difficulty_dots": 2
+  },
+  {
+    "id": "ARC-07",
+    "name": "Nigerian pepper soup",
+    "meal_slot": "dinner",
+    "serves": 4,
+    "required_categories": ["any_protein", "fresh_pepper", "alliums", "scent_leaf_or_uziza"],
+    "optional_categories": ["stockfish", "dried_crayfish"],
+    "is_surprise": false,
+    "difficulty": {
+      "score": 2,
+      "label": "Simple",
+      "drivers": [
+        "Mostly hands-off simmering",
+        "The one skill is balancing the heat level to taste"
+      ]
+    },
+    "time": {
+      "prep_min": 8,
+      "active_cook_min": 12,
+      "passive_min": 20,
+      "total_min": 40,
+      "overlap_note": "Crush the pepper and tear the leaves while the protein simmers.",
+      "make_ahead": []
+    },
+    "equipment": ["Pot"],
+    "ingredients": [
+      { "item": "Chicken, beef, or catfish", "qty": "500g", "prep": "Cleaned and cut. Catfish: scald with hot water and rub off the slime first.", "substitutes": ["goat meat", "assorted meat"] },
+      { "item": "Scotch bonnet peppers", "qty": "2-3", "prep": "Roughly crushed or blended chunky.", "substitutes": [] },
+      { "item": "Onion", "qty": "1 medium", "prep": "Sliced", "substitutes": [] },
+      { "item": "Scent leaf or uziza", "qty": "small bunch", "prep": "Roughly torn.", "substitutes": ["basil (as a scent-leaf stand-in)"] },
+      { "item": "Pepper-soup spice", "qty": "1-2 tsp", "prep": "", "substitutes": ["ground calabash nutmeg + uda + uziza seed mix"] },
+      { "item": "Stock cube + salt", "qty": "1 cube + to taste", "prep": "", "substitutes": [] }
+    ],
+    "steps": [
+      { "action": "Put the protein in a pot with enough water to cover, add the onion, stock cube, salt and pepper-soup spice, and bring to a boil.", "duration_min": 5, "cue": "A rolling boil with the spice aroma rising.", "why": "Building the broth and cooking the protein at once.", "watch_out": "Catfish needs less time and breaks easily — handle gently." },
+      { "action": "Crush or blend the peppers chunky (not smooth) while it cooks.", "duration_min": 3, "cue": "Chunky pepper pieces, not a paste.", "why": "Chunky pepper gives pepper soup its rustic texture and heat pockets.", "watch_out": "" },
+      { "action": "Add the crushed pepper after the protein has cooked ~15 minutes. Taste for heat and salt.", "duration_min": 15, "cue": "Broth is fragrant, spicy to your liking, protein is tender.", "why": "Adding pepper partway lets you control the final heat.", "watch_out": "Too hot to fix later — add pepper gradually." },
+      { "action": "Add crayfish (if using) and the torn scent leaf or uziza in the last 2 minutes. Don't boil the leaves.", "duration_min": 2, "cue": "Leaves wilt and release their aroma.", "why": "The fresh-herb aroma is the soul of pepper soup; boiling kills it.", "watch_out": "Turn off the heat right after the leaves go in." }
+    ],
+    "doneness_signature": "Clear, spicy, aromatic broth with tender protein and the unmistakable scent-leaf perfume.",
+    "rescue": [
+      { "problem": "Too spicy", "fix": "Add more water and a touch more stock cube and salt to rebalance." },
+      { "problem": "Flat / not aromatic", "fix": "Add a little more pepper-soup spice and a fresh handful of torn scent leaf at the end." }
+    ],
+    "level_up": [
+      { "touch": "Restaurant catfish version", "how": "Use fresh catfish steaks and add a few yam cubes to simmer in the broth for a fuller bowl." }
+    ],
+    "active_minutes": 40,
+    "difficulty_dots": 2
+  },
+  {
+    "id": "ARC-08",
+    "name": "Okra soup",
+    "meal_slot": "dinner",
+    "serves": 4,
+    "required_categories": ["fresh_okra", "palm_oil", "dried_crayfish"],
+    "optional_categories": ["any_protein", "stockfish", "fresh_pepper"],
+    "is_surprise": false,
+    "difficulty": {
+      "score": 2,
+      "label": "Simple",
+      "drivers": [
+        "Fast, but timing-sensitive: overcooked okra loses its 'draw'",
+        "One technique — slicing the okra thin for more stretch"
+      ]
+    },
+    "time": {
+      "prep_min": 8,
+      "active_cook_min": 12,
+      "passive_min": 15,
+      "total_min": 35,
+      "overlap_note": "Slice the okra while the protein pre-cooks.",
+      "make_ahead": ["Pre-cook tough proteins"]
+    },
+    "equipment": ["Pot", "Knife or okra grater"],
+    "ingredients": [
+      { "item": "Fresh okra", "qty": "500g", "prep": "Washed and sliced thin — the thinner, the more 'draw'.", "substitutes": ["grated okra for maximum draw"] },
+      { "item": "Palm oil", "qty": "1/4 cup", "prep": "", "substitutes": [] },
+      { "item": "Crayfish", "qty": "2 tbsp", "prep": "Ground", "substitutes": [] },
+      { "item": "Protein (beef, kpomo, stockfish)", "qty": "to taste", "prep": "Pre-cooked.", "substitutes": [] },
+      { "item": "Onion", "qty": "1 small", "prep": "Sliced", "substitutes": [] },
+      { "item": "Salt + stock cube", "qty": "to taste", "prep": "", "substitutes": [] }
+    ],
+    "steps": [
+      { "action": "Pre-cook the protein in salted water with onion until done. Keep the stock.", "duration_min": 12, "cue": "Protein tender.", "why": "Tough proteins won't soften in the short okra cook.", "watch_out": "Skip if your protein is already tender." },
+      { "action": "Add the palm oil to the protein pot and bring to a gentle boil.", "duration_min": 2, "cue": "Oil melts into the stock.", "why": "Base for the soup.", "watch_out": "" },
+      { "action": "Stir in the crayfish and stock cube. Taste.", "duration_min": 1, "cue": "Savoury broth.", "why": "Season before the okra so you don't overstir it later.", "watch_out": "" },
+      { "action": "Add the sliced okra. Cook on medium for EXACTLY 5 minutes — no longer.", "duration_min": 5, "cue": "Lift the spoon: the soup stretches and 'draws' in strings.", "why": "The draw is the whole point. Overcooking breaks it down and the soup goes watery and dull.", "watch_out": "Set a timer. Five minutes, then stop." },
+      { "action": "Serve immediately.", "duration_min": 1, "cue": "Hot, glossy, stretchy.", "why": "Okra soup waits for no one — the draw fades as it sits.", "watch_out": "" }
+    ],
+    "doneness_signature": "Glossy green soup that stretches into strings off the spoon, studded with protein.",
+    "rescue": [
+      { "problem": "Lost the draw (watery)", "fix": "Stir in a small handful of fresh grated okra and cook just 2 more minutes." },
+      { "problem": "Too thick/sticky", "fix": "Loosen with a splash of hot stock." }
+    ],
+    "level_up": [
+      { "touch": "Seafood okra", "how": "Add prawns and periwinkle in the last 3 minutes for a coastal-style pot." }
+    ],
+    "active_minutes": 35,
+    "difficulty_dots": 2
+  },
+  {
+    "id": "ARC-09",
+    "name": "Nigerian red stew (all-purpose)",
+    "meal_slot": "dinner",
+    "serves": 4,
+    "required_categories": ["fresh_tomato_family", "fresh_pepper", "alliums", "any_protein", "cooking_oil"],
+    "optional_categories": ["tatashe_bell_pepper", "tomato_paste"],
+    "is_surprise": false,
+    "difficulty": {
+      "score": 2,
+      "label": "Simple",
+      "drivers": [
+        "One real technique: frying the tomato base long enough",
+        "Splatter management when the hot oil meets the blend"
+      ]
+    },
+    "time": {
+      "prep_min": 10,
+      "active_cook_min": 25,
+      "passive_min": 15,
+      "total_min": 50,
+      "overlap_note": "Fry the protein while the blend reduces.",
+      "make_ahead": ["Blend the tomato-pepper", "Fry the protein"]
+    },
+    "equipment": ["Blender", "Deep pot", "Frying pan"],
+    "ingredients": [
+      { "item": "Tomatoes + peppers + tatashe", "qty": "6 + 3 + 1", "prep": "Blended together.", "substitutes": ["tinned tomato + fresh pepper + tomato paste"] },
+      { "item": "Chicken, beef, or turkey", "qty": "500g", "prep": "Seasoned and fried until golden.", "substitutes": [] },
+      { "item": "Onion", "qty": "1 large", "prep": "Half blended into the mix, half sliced.", "substitutes": [] },
+      { "item": "Vegetable or groundnut oil", "qty": "1/3 cup", "prep": "", "substitutes": [] },
+      { "item": "Stock cube + salt + curry", "qty": "1 cube + salt + 1 tsp curry", "prep": "", "substitutes": [] }
+    ],
+    "steps": [
+      { "action": "Season the protein, then fry or bake it until golden-brown outside. Set aside. Keep any juices.", "duration_min": 12, "cue": "Browned crust on the protein.", "why": "Browning builds deep flavour the stew layers on.", "watch_out": "Don't crowd the pan — brown in batches." },
+      { "action": "Heat the oil in a pot until very hot — a slice of onion should sizzle immediately.", "duration_min": 2, "cue": "Onion sizzles on contact.", "why": "Hot oil cooks the raw tomato fast and clean.", "watch_out": "Hot, not smoking." },
+      { "action": "Add the sliced onion and fry 2 minutes, then pour in the blended mix SLOWLY (it splatters — step back).", "duration_min": 3, "cue": "The blend hits the oil and bubbles hard.", "why": "Slow pouring controls the splatter.", "watch_out": "Use a splatter screen or partial lid; hot stew burns." },
+      { "action": "Fry the tomato mix on medium-high, stirring every 3 minutes, until thick and dark red with oil floating on top.", "duration_min": 15, "cue": "Mix is thick, deep brick-red, and oil pools at the surface.", "why": "This long fry is the difference between bright, raw 'tomato sauce' and proper, mellow Nigerian stew. Don't rush it.", "watch_out": "Lower the heat if it spits or catches; stir the bottom." },
+      { "action": "Add the fried protein, stir, cover and cook 5 minutes. Taste for salt.", "duration_min": 5, "cue": "Protein is coated and the flavours meld.", "why": "A short simmer marries the protein and stew.", "watch_out": "" }
+    ],
+    "doneness_signature": "Thick, dark-red, oil-glossed stew with a deep cooked-down flavour — pairs with anything.",
+    "rescue": [
+      { "problem": "Tastes sharp/raw", "fix": "It needs more frying time — keep cooking on medium until the rawness goes and the oil separates." },
+      { "problem": "Too oily", "fix": "Skim oil from the top; it's traditional to leave some but you can remove excess." }
+    ],
+    "level_up": [
+      { "touch": "Designer stew", "how": "Finish with a little ground ehu (calabash nutmeg) or a bay leaf while it simmers." }
+    ],
+    "active_minutes": 50,
+    "difficulty_dots": 2
+  },
+  {
+    "id": "ARC-10",
+    "name": "Boiled yam and egg sauce",
+    "meal_slot": "dinner",
+    "serves": 4,
+    "required_categories": ["yam_cut_pieces", "eggs", "alliums", "fresh_tomato_family"],
+    "optional_categories": ["fresh_pepper", "dried_crayfish", "palm_oil"],
+    "is_surprise": false,
+    "difficulty": {
+      "score": 1,
+      "label": "Easy",
+      "drivers": [
+        "Two simple parts: boil yam, make a quick sauce",
+        "Hard to ruin — just don't overcook the yam"
+      ]
+    },
+    "time": {
+      "prep_min": 8,
+      "active_cook_min": 12,
+      "passive_min": 15,
+      "total_min": 35,
+      "overlap_note": "Make the egg sauce while the yam boils.",
+      "make_ahead": []
+    },
+    "equipment": ["Pot", "Frying pan"],
+    "ingredients": [
+      { "item": "Yam", "qty": "Half a tuber", "prep": "Peeled and cut into medium slices.", "substitutes": ["sweet potato", "Irish potato"] },
+      { "item": "Eggs", "qty": "4", "prep": "", "substitutes": [] },
+      { "item": "Tomatoes", "qty": "2", "prep": "Diced", "substitutes": [] },
+      { "item": "Onion", "qty": "1", "prep": "Sliced", "substitutes": [] },
+      { "item": "Vegetable oil", "qty": "2 tbsp", "prep": "", "substitutes": [] },
+      { "item": "Salt + crayfish", "qty": "to taste + 1 tsp", "prep": "Crayfish ground (optional but transformative).", "substitutes": [] }
+    ],
+    "steps": [
+      { "action": "Boil the yam slices in salted water until a fork goes in easily.", "duration_min": 18, "cue": "A fork slides in with no resistance, ~15-20 min.", "why": "Yam should be tender but hold its shape.", "watch_out": "Overcooking makes it fall apart and go gluey." },
+      { "action": "While the yam boils, heat the oil and fry the onion until soft.", "duration_min": 2, "cue": "Onion soft and fragrant.", "why": "Base for the sauce.", "watch_out": "" },
+      { "action": "Add the diced tomatoes and cook 3-4 minutes until softened.", "duration_min": 4, "cue": "Tomatoes break down into a loose sauce.", "why": "Cooking off the raw tomato.", "watch_out": "" },
+      { "action": "Crack in the eggs. Stir immediately for soft scramble, or leave 2 minutes for a more set sauce. Season with salt (and crayfish).", "duration_min": 3, "cue": "Eggs just set, still glossy and soft.", "why": "Eggs keep cooking off the heat — pull them slightly underdone.", "watch_out": "Don't overcook to rubbery." },
+      { "action": "Drain the yam and serve with the egg sauce over it.", "duration_min": 1, "cue": "", "why": "A pinch of crayfish in the sauce changes the whole flavour — try it.", "watch_out": "" }
+    ],
+    "doneness_signature": "Tender white yam under a soft, glossy tomato-egg sauce.",
+    "rescue": [
+      { "problem": "Yam fell apart", "fix": "Mash it with a little oil and salt and serve as a quick yam mash instead." },
+      { "problem": "Eggs overcooked", "fix": "Stir in a spoon of the tomato sauce off the heat to loosen them." }
+    ],
+    "level_up": [
+      { "touch": "Pepper-sauce upgrade", "how": "Add a blended scotch bonnet and a spoon of palm oil for a spicy, Niger-Delta-style egg sauce." }
+    ],
+    "active_minutes": 35,
+    "difficulty_dots": 1
+  },
+  {
+    "id": "ARC-11",
+    "name": "Ogbono soup",
+    "meal_slot": "dinner",
+    "serves": 4,
+    "required_categories": ["ogbono_seeds", "palm_oil", "dried_crayfish", "any_protein"],
+    "optional_categories": ["fresh_leafy_green", "stockfish", "fresh_pepper"],
+    "is_surprise": false,
+    "difficulty": {
+      "score": 3,
+      "label": "Intermediate",
+      "drivers": [
+        "Ogbono must be dissolved in oil correctly or it clumps and won't draw",
+        "Constant stirring needed to develop the draw",
+        "Timing the protein and the thickener together"
+      ]
+    },
+    "time": {
+      "prep_min": 8,
+      "active_cook_min": 17,
+      "passive_min": 20,
+      "total_min": 45,
+      "overlap_note": "Grind the ogbono while the protein cooks.",
+      "make_ahead": ["Grind the ogbono", "Pre-cook the protein"]
+    },
+    "equipment": ["Two pots", "Wooden spoon"],
+    "ingredients": [
+      { "item": "Ogbono seeds", "qty": "1/2 cup", "prep": "Ground dry to a fine powder (or buy pre-ground). Fresh-ground draws best.", "substitutes": [] },
+      { "item": "Palm oil", "qty": "1/4 cup", "prep": "", "substitutes": [] },
+      { "item": "Crayfish", "qty": "2 tbsp", "prep": "Ground", "substitutes": [] },
+      { "item": "Protein + stockfish", "qty": "500g", "prep": "Seasoned.", "substitutes": [] },
+      { "item": "Ugu or bitter leaf", "qty": "handful", "prep": "Shredded (optional).", "substitutes": ["spinach"] },
+      { "item": "Stock cube + salt", "qty": "1 cube + to taste", "prep": "", "substitutes": [] }
+    ],
+    "steps": [
+      { "action": "Cook the protein and stockfish with onion and stock cube until soft. Keep the stock.", "duration_min": 18, "cue": "Protein tender; flavourful stock.", "why": "The stock is the soup's liquid base.", "watch_out": "Don't let it dry out." },
+      { "action": "In a separate small pot, warm the palm oil until liquid, take it OFF the heat, and stir in the ground ogbono.", "duration_min": 2, "cue": "It forms a smooth, glossy, nutty-smelling paste.", "why": "Dissolving ogbono in warm (not boiling) oil off the heat is what lets it draw later. Added straight to water, it clumps into hard lumps.", "watch_out": "Take the oil off the heat first — too hot and the ogbono fries instead of dissolving." },
+      { "action": "Stir the ogbono-oil paste into the protein stock pot on medium heat.", "duration_min": 2, "cue": "The paste blends into the stock evenly.", "why": "Now it disperses smoothly through the whole pot.", "watch_out": "Stir as you add to avoid lumps re-forming." },
+      { "action": "Add the crayfish and stir CONSTANTLY for about 5 minutes — ogbono thickens and draws as it cooks.", "duration_min": 5, "cue": "Lift the spoon and the soup pulls into strings.", "why": "Constant stirring develops the draw evenly and stops it catching.", "watch_out": "Stop stirring and it can clump or burn at the bottom." },
+      { "action": "Taste for salt and add the shredded greens in the last 2 minutes if using.", "duration_min": 2, "cue": "Greens wilt, soup is thick and stretchy.", "why": "Greens only need to wilt.", "watch_out": "" }
+    ],
+    "doneness_signature": "Thick, dark, glossy soup that draws into long strings, rich with crayfish and palm oil.",
+    "rescue": [
+      { "problem": "Ogbono clumped into hard lumps", "fix": "Lower the heat and mash the lumps against the pot side while stirring; they'll slowly dissolve." },
+      { "problem": "No draw", "fix": "Your ogbono may be old. Mix a little fresh ground ogbono with warm oil and stir it in." }
+    ],
+    "level_up": [
+      { "touch": "Mixed-meat ogbono", "how": "Add assorted meats and dry fish for a heartier, special-occasion pot." }
+    ],
+    "active_minutes": 45,
+    "difficulty_dots": 3
+  },
+  {
+    "id": "ARC-12",
+    "name": "Nigerian spaghetti / one-pot pasta",
+    "meal_slot": "lunch",
+    "serves": 4,
+    "required_categories": ["dry_pasta", "fresh_tomato_family", "alliums", "any_protein"],
+    "optional_categories": ["carrots", "cabbage", "fresh_pepper"],
+    "is_surprise": false,
+    "difficulty": {
+      "score": 1,
+      "label": "Easy",
+      "drivers": [
+        "Straightforward: boil pasta, make sauce, combine",
+        "Hard to ruin — just don't overcook the pasta"
+      ]
+    },
+    "time": {
+      "prep_min": 8,
+      "active_cook_min": 17,
+      "passive_min": 10,
+      "total_min": 35,
+      "overlap_note": "Make the sauce while the pasta boils.",
+      "make_ahead": []
+    },
+    "equipment": ["Pot", "Colander"],
+    "ingredients": [
+      { "item": "Spaghetti or any pasta", "qty": "200g", "prep": "", "substitutes": ["macaroni", "penne"] },
+      { "item": "Tomatoes + peppers", "qty": "4 + 1-2", "prep": "Blended or roughly chopped.", "substitutes": ["tinned tomato"] },
+      { "item": "Onion", "qty": "1", "prep": "Diced", "substitutes": [] },
+      { "item": "Protein (beef, chicken, tuna, eggs)", "qty": "to taste", "prep": "", "substitutes": [] },
+      { "item": "Vegetable oil", "qty": "2 tbsp", "prep": "", "substitutes": [] },
+      { "item": "Salt + stock cube + curry", "qty": "1 cube + salt + 1 tsp curry", "prep": "", "substitutes": [] }
+    ],
+    "steps": [
+      { "action": "Boil the pasta in salted water until cooked but not mushy. Drain and set aside.", "duration_min": 10, "cue": "Tender with a slight bite, ~8-10 min.", "why": "It cooks a little more in the sauce, so stop just short.", "watch_out": "Salt the water well — it's your one chance to season the pasta itself." },
+      { "action": "In the same pot, heat the oil and fry the onion 2 minutes.", "duration_min": 2, "cue": "Onion soft.", "why": "Base flavour.", "watch_out": "" },
+      { "action": "Add the blended tomatoes and fry 8 minutes until thick and oil shows on top.", "duration_min": 8, "cue": "Thick sauce, oil floating.", "why": "Cooking out the raw tomato — same rule as stew.", "watch_out": "Stir so it doesn't catch." },
+      { "action": "Add the protein (raw: cook ~10 min with a splash of water; pre-cooked: add now), then curry, stock cube and salt.", "duration_min": 4, "cue": "Protein cooked, sauce seasoned.", "why": "Build the sauce fully before the pasta goes in.", "watch_out": "" },
+      { "action": "Add the drained pasta and toss everything together on low heat for 2 minutes.", "duration_min": 2, "cue": "Every strand coated in sauce.", "why": "Tossing in the pan flavours the pasta through, the Nigerian way — not served plain with sauce on top.", "watch_out": "Low heat so the bottom doesn't catch." }
+    ],
+    "doneness_signature": "Tender, sauce-coated pasta, evenly red, with protein and a curry warmth.",
+    "rescue": [
+      { "problem": "Pasta clumped/sticky", "fix": "Toss with a tablespoon of oil and a splash of hot water to loosen." },
+      { "problem": "Too dry", "fix": "Add a little hot water or extra sauce and toss." }
+    ],
+    "level_up": [
+      { "touch": "Jollof spaghetti", "how": "Treat it like jollof — cook the drained pasta IN the sauce with a little stock for a smoky one-pot version." }
+    ],
+    "active_minutes": 35,
+    "difficulty_dots": 1
+  },
+  {
+    "id": "ARC-13",
+    "name": "Moi moi (steamed bean pudding)",
+    "meal_slot": "lunch",
+    "serves": 4,
+    "required_categories": ["dried_beans_honey_beans", "fresh_pepper", "alliums"],
+    "optional_categories": ["eggs", "proteins_beef_or_kpomo", "canned_sardine_or_fish"],
+    "is_surprise": false,
+    "difficulty": {
+      "score": 4,
+      "label": "Involved",
+      "drivers": [
+        "Peeling the beans by hand is slow, essential work",
+        "The batter consistency and seasoning must be judged before steaming",
+        "Long steam with a doneness test, and fillings to layer"
+      ]
+    },
+    "time": {
+      "prep_min": 35,
+      "active_cook_min": 5,
+      "passive_min": 50,
+      "total_min": 90,
+      "overlap_note": "Soak the beans ahead; the steam is hands-off once it's set up.",
+      "make_ahead": ["Soak and peel the beans", "Blend the batter"]
+    },
+    "equipment": ["Blender", "Moi moi moulds (tins, foil, or leaves)", "Large pot with lid for steaming"],
+    "ingredients": [
+      { "item": "Honey beans", "qty": "2 cups", "prep": "Soaked 30 min, then rubbed between the palms to remove ALL the skins, rinsed clean.", "substitutes": ["pre-peeled beans flour as a faster alternative"] },
+      { "item": "Peppers + onion", "qty": "4 peppers + 1 onion", "prep": "Blended with the beans.", "substitutes": [] },
+      { "item": "Vegetable oil", "qty": "3 tbsp", "prep": "", "substitutes": [] },
+      { "item": "Stock cube + salt", "qty": "1 cube + to taste", "prep": "", "substitutes": [] },
+      { "item": "Fillings (eggs, kpomo, sardine)", "qty": "optional", "prep": "Boiled eggs sliced; kpomo cubed.", "substitutes": [] }
+    ],
+    "steps": [
+      { "action": "After soaking, rub the beans between your palms to loosen the skins, then rinse the skins away in several changes of water until the beans are clean and white.", "duration_min": 20, "cue": "Beans are pale and skinless; the water runs clear of skins.", "why": "Skins make moi moi grainy and grey. This is the effort-heavy step that makes the texture smooth — the old recipe hid it in the ingredient line.", "watch_out": "Float the skins off the top — they rise while the heavy beans sink." },
+      { "action": "Blend the peeled beans with the peppers and onion using minimal water to a thick, smooth batter.", "duration_min": 5, "cue": "Thick and smooth like cake batter — it should drop off the spoon in a ribbon, not pour.", "why": "Too much water and the moi moi won't set. Thick batter is essential.", "watch_out": "Add water a splash at a time; you can't take it back out." },
+      { "action": "Stir in the oil, stock cube and salt. Taste the raw batter — it should be well seasoned.", "duration_min": 3, "cue": "Batter tastes pleasantly salty and savoury.", "why": "You can't season it after steaming, so get it right now.", "watch_out": "Under-seasoned batter = bland moi moi with no fix." },
+      { "action": "Grease the moulds. Spoon batter halfway, add filling, top with more batter.", "duration_min": 5, "cue": "Moulds filled about 3/4 to leave room to rise.", "why": "Layering puts the filling in the centre.", "watch_out": "Don't overfill — it expands as it steams." },
+      { "action": "Steam in a pot with water reaching halfway up the moulds, lid on, for 45-50 minutes. Top up water if it boils low.", "duration_min": 48, "cue": "A knife pushed into the centre comes out clean.", "why": "Gentle steam sets the pudding evenly.", "watch_out": "Don't let the pot boil dry. Keep the lid on to hold the steam." },
+      { "action": "Rest 5 minutes before unmoulding.", "duration_min": 2, "cue": "Firm enough to hold its shape.", "why": "It firms up as it cools slightly.", "watch_out": "" }
+    ],
+    "doneness_signature": "Smooth, firm, savoury bean pudding that slices clean, speckled red from the pepper.",
+    "rescue": [
+      { "problem": "Watery / won't set", "fix": "Batter had too much water. Steam longer; next time blend thicker." },
+      { "problem": "Grainy texture", "fix": "Beans weren't fully peeled. Nothing to do now, but peel more thoroughly next time." }
+    ],
+    "level_up": [
+      { "touch": "Banana-leaf moi moi", "how": "Steam in banana leaves instead of tins for the traditional aroma and a beautiful presentation." },
+      { "touch": "Loaded moi moi", "how": "Layer boiled egg, flaked mackerel, and kpomo through the middle for a protein-rich centre." }
+    ],
+    "active_minutes": 90,
+    "difficulty_dots": 4
+  },
+  {
+    "id": "ARC-14",
+    "name": "Nigerian jambalaya (rice with everything)",
+    "meal_slot": "dinner",
+    "serves": 4,
+    "required_categories": ["parboiled_rice", "any_protein", "fresh_tomato_family", "fresh_pepper", "alliums"],
+    "optional_categories": ["carrots", "green_beans", "dried_crayfish", "tatashe_bell_pepper"],
+    "is_surprise": true,
+    "surprise_note": "Takes a standard GoLemon rice + protein + vegetable basket and turns it into a one-pot cajun-influenced dish most users wouldn't think to try from these ingredients.",
+    "difficulty": {
+      "score": 3,
+      "label": "Intermediate",
+      "drivers": [
+        "One-pot, but the browning-then-building sequence matters",
+        "Judging the rice-to-liquid ratio so it cooks without burning",
+        "Several components added in order"
+      ]
+    },
+    "time": {
+      "prep_min": 12,
+      "active_cook_min": 18,
+      "passive_min": 30,
+      "total_min": 60,
+      "overlap_note": "Blend and chop while the protein browns.",
+      "make_ahead": ["Blend the tomato-pepper", "Cut and season the protein"]
+    },
+    "equipment": ["Wide heavy pot with lid", "Blender"],
+    "ingredients": [
+      { "item": "Parboiled rice", "qty": "2 cups", "prep": "Washed.", "substitutes": [] },
+      { "item": "Chicken or beef", "qty": "500g", "prep": "Cut into bite-sized pieces, seasoned.", "substitutes": ["sausage", "turkey"] },
+      { "item": "Tomatoes + peppers + tatashe", "qty": "4 + 2 + 1", "prep": "Blended.", "substitutes": [] },
+      { "item": "Onion", "qty": "1 large", "prep": "Diced", "substitutes": [] },
+      { "item": "Carrot", "qty": "1", "prep": "Diced (optional, for colour).", "substitutes": [] },
+      { "item": "Vegetable oil", "qty": "3 tbsp", "prep": "", "substitutes": [] },
+      { "item": "Paprika/suya spice + stock cube + salt", "qty": "1 tbsp + 1 cube + to taste", "prep": "", "substitutes": [] }
+    ],
+    "steps": [
+      { "action": "Season the protein with salt, stock cube and paprika/suya spice. Brown it in oil in a wide pot on all sides — don't cook through. Set aside.", "duration_min": 6, "cue": "Golden-brown crust; still pink inside is fine.", "why": "Browning is where the deep flavour comes from; it finishes cooking in the rice.", "watch_out": "Don't crowd the pot or it steams instead of browning." },
+      { "action": "In the same pot, fry the diced onion 2 minutes in the leftover oil.", "duration_min": 2, "cue": "Onion soft, picking up the browned bits.", "why": "Those browned bits (fond) are pure flavour.", "watch_out": "" },
+      { "action": "Add the blended tomato-pepper and fry on high 10 minutes until thick.", "duration_min": 10, "cue": "Thick, darkened, oil showing.", "why": "Cook out the raw tomato before the rice goes in.", "watch_out": "Stir to stop it catching." },
+      { "action": "Return the browned protein, add the carrot, then the washed rice. Stir to coat everything.", "duration_min": 2, "cue": "Rice glossy and coated in the red base.", "why": "Coating the rice in the base flavours every grain.", "watch_out": "" },
+      { "action": "Add water to sit 1.5cm above the rice. Cover and cook on low 25-30 minutes. Check at 25.", "duration_min": 28, "cue": "Rice tender; protein cooked through; chunky and saucy.", "why": "Low and covered lets it steam evenly without burning.", "watch_out": "Undercooked at 25 min? Splash in a little water, cover, 5 more minutes." }
+    ],
+    "doneness_signature": "Smoky, saucy rice with visible chunky protein and flecks of carrot — heartier and chunkier than jollof.",
+    "rescue": [
+      { "problem": "Rice crunchy, liquid gone", "fix": "Sprinkle hot water over the top, cover, steam on lowest heat 8-10 min." },
+      { "problem": "Burning at the bottom", "fix": "Don't stir up the burnt layer; move off heat, lid on, let steam finish it." }
+    ],
+    "level_up": [
+      { "touch": "Cajun kick", "how": "Add smoked sausage and a pinch of cayenne with the protein for a true jambalaya edge." }
+    ],
+    "active_minutes": 60,
+    "difficulty_dots": 3
+  },
+  {
+    "id": "ARC-15",
+    "name": "Plantain porridge (asaro-style)",
+    "meal_slot": "dinner",
+    "serves": 4,
+    "required_categories": ["ripe_plantain", "palm_oil", "fresh_tomato_family", "alliums"],
+    "optional_categories": ["any_protein", "dried_crayfish", "scent_leaf_or_uziza"],
+    "is_surprise": true,
+    "surprise_note": "Most users buy ripe plantain planning to fry it. This shows a savoury plantain porridge using the same ripe plantains — a completely different (and faster) dish.",
+    "difficulty": {
+      "score": 2,
+      "label": "Simple",
+      "drivers": [
+        "One-pot and forgiving",
+        "Only judgement is how soft and mashed you want the plantain"
+      ]
+    },
+    "time": {
+      "prep_min": 8,
+      "active_cook_min": 12,
+      "passive_min": 12,
+      "total_min": 32,
+      "overlap_note": "",
+      "make_ahead": ["Blend the tomato-pepper"]
+    },
+    "equipment": ["Pot"],
+    "ingredients": [
+      { "item": "Ripe plantains", "qty": "3-4", "prep": "Peeled and cut into medium chunks.", "substitutes": [] },
+      { "item": "Palm oil", "qty": "3 tbsp", "prep": "", "substitutes": [] },
+      { "item": "Tomatoes + pepper", "qty": "2 + 1", "prep": "Blended.", "substitutes": [] },
+      { "item": "Onion", "qty": "1", "prep": "Sliced", "substitutes": [] },
+      { "item": "Crayfish", "qty": "1 tbsp", "prep": "Ground (optional).", "substitutes": [] },
+      { "item": "Scent leaf", "qty": "small bunch", "prep": "Torn (optional).", "substitutes": [] },
+      { "item": "Salt + stock cube", "qty": "to taste", "prep": "", "substitutes": [] }
+    ],
+    "steps": [
+      { "action": "Heat the palm oil in a pot, add the onion and stir 1 minute.", "duration_min": 2, "cue": "Onion soft.", "why": "Base flavour.", "watch_out": "Don't smoke the palm oil." },
+      { "action": "Add the blended tomato-pepper and fry 5 minutes.", "duration_min": 5, "cue": "Mix thickens and loses its raw smell.", "why": "Cook out the rawness for a clean flavour.", "watch_out": "" },
+      { "action": "Add the plantain chunks and stir to coat in the base.", "duration_min": 2, "cue": "Plantain coated red.", "why": "Coating flavours the plantain as it cooks.", "watch_out": "" },
+      { "action": "Add 1 cup water, cover, and cook on low 10-12 minutes until the plantain is soft.", "duration_min": 11, "cue": "A fork goes into the plantain easily.", "why": "The plantain absorbs the tomato-oil flavour as it softens.", "watch_out": "Don't add too much water — it should be a thick porridge, not a soup." },
+      { "action": "Add crayfish, stock cube and salt. Mash some of the plantain to thicken, then stir in the torn scent leaf in the last minute.", "duration_min": 2, "cue": "Sweet, savoury, slightly smoky, thick.", "why": "Mashing some chunks thickens the sauce; scent leaf finishes it.", "watch_out": "Taste — plantain porridge balances sweet and savoury." }
+    ],
+    "doneness_signature": "Thick, sweet-savoury, smoky porridge of soft plantain in a red palm-oil sauce.",
+    "rescue": [
+      { "problem": "Too watery", "fix": "Mash more plantain into it and simmer uncovered to thicken." },
+      { "problem": "Too sweet", "fix": "Add a little more pepper and salt to balance." }
+    ],
+    "level_up": [
+      { "touch": "Protein porridge", "how": "Add smoked fish or pre-cooked beef and a handful of ugu for a complete one-pot dinner." }
+    ],
+    "active_minutes": 32,
+    "difficulty_dots": 2
+  }
+]

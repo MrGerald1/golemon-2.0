@@ -1,0 +1,296 @@
+[
+  {
+    "id": "DST-01",
+    "name": "Sliced pineapple",
+    "meal_slot": "dessert",
+    "serves": 4,
+    "required_categories": ["pineapple"],
+    "optional_categories": [],
+    "is_surprise": false,
+    "difficulty": {
+      "score": 1,
+      "label": "Easy",
+      "drivers": ["Knife work only, no cooking"]
+    },
+    "time": { "prep_min": 5, "active_cook_min": 0, "passive_min": 0, "total_min": 5, "overlap_note": "", "make_ahead": ["Chill the pineapple"] },
+    "equipment": ["Sharp knife", "Board"],
+    "ingredients": [
+      { "item": "Ripe pineapple", "qty": "1", "prep": "", "substitutes": [] }
+    ],
+    "steps": [
+      { "action": "Cut off the top and base so the pineapple stands flat.", "duration_min": 1, "cue": "It sits steady on the board.", "why": "A flat base makes it safe to cut.", "watch_out": "" },
+      { "action": "Slice the skin off downward in strips, following the curve.", "duration_min": 2, "cue": "Skin and most 'eyes' removed.", "why": "Following the curve wastes less fruit.", "watch_out": "Dig out any remaining brown eyes." },
+      { "action": "Cut into rings or chunks, removing the hard core in the middle. Chill if you have time.", "duration_min": 2, "cue": "No woody core in the pieces.", "why": "The core is tough and fibrous.", "watch_out": "" }
+    ],
+    "doneness_signature": "Bright, juicy pineapple pieces with no skin or core.",
+    "rescue": [
+      { "problem": "Too sharp/acidic", "fix": "A tiny pinch of salt over the pieces tames the acidity and lifts the sweetness." }
+    ],
+    "level_up": [
+      { "touch": "Chilli-lime", "how": "Dust with a little chilli and squeeze lime over for a street-style treat." }
+    ],
+    "active_minutes": 5,
+    "difficulty_dots": 1
+  },
+  {
+    "id": "DST-02",
+    "name": "Watermelon slices",
+    "meal_slot": "dessert",
+    "serves": 4,
+    "required_categories": ["watermelon"],
+    "optional_categories": [],
+    "is_surprise": false,
+    "difficulty": { "score": 1, "label": "Easy", "drivers": ["Knife work only, no cooking"] },
+    "time": { "prep_min": 5, "active_cook_min": 0, "passive_min": 0, "total_min": 5, "overlap_note": "", "make_ahead": ["Chill the watermelon"] },
+    "equipment": ["Large knife", "Board"],
+    "ingredients": [
+      { "item": "Watermelon", "qty": "Half", "prep": "", "substitutes": [] }
+    ],
+    "steps": [
+      { "action": "Cut the watermelon in half, then into wedges.", "duration_min": 2, "cue": "Even wedges.", "why": "Wedges are easy to handle and serve.", "watch_out": "Use a big, stable knife." },
+      { "action": "Slice the flesh off the rind, or serve as wedges to bite. Cut into cubes for a bowl. Best cold.", "duration_min": 3, "cue": "Juicy red flesh, white rind left behind.", "why": "The simplest way to end a meal light.", "watch_out": "" }
+    ],
+    "doneness_signature": "Cold, crisp watermelon, cubed or in wedges.",
+    "rescue": [
+      { "problem": "Bland/warm", "fix": "Chill well and add a squeeze of lime." }
+    ],
+    "level_up": [
+      { "touch": "Feta & mint", "how": "Scatter crumbled feta and torn mint over the cubes." }
+    ],
+    "active_minutes": 5,
+    "difficulty_dots": 1
+  },
+  {
+    "id": "DST-03",
+    "name": "Fruit salad",
+    "meal_slot": "dessert",
+    "serves": 4,
+    "required_categories": ["mixed_fruit"],
+    "optional_categories": ["evaporated_milk", "yogurt", "groundnut"],
+    "is_surprise": false,
+    "difficulty": { "score": 1, "label": "Easy", "drivers": ["Chopping and mixing, no cooking", "Only care is keeping soft fruit from browning"] },
+    "time": { "prep_min": 12, "active_cook_min": 0, "passive_min": 0, "total_min": 12, "overlap_note": "", "make_ahead": ["Chill"] },
+    "equipment": ["Knife", "Bowl"],
+    "ingredients": [
+      { "item": "Mixed fruit (pineapple, watermelon, pawpaw, banana, apple)", "qty": "any mix", "prep": "Washed and peeled where needed.", "substitutes": [] },
+      { "item": "Milk or yogurt", "qty": "a little (optional)", "prep": "", "substitutes": [] },
+      { "item": "Groundnut", "qty": "optional", "prep": "", "substitutes": [] }
+    ],
+    "steps": [
+      { "action": "Wash and peel the fruits that need it.", "duration_min": 4, "cue": "All fruit ready to cut.", "why": "", "watch_out": "" },
+      { "action": "Cut everything into similar bite-sized cubes so it mixes evenly.", "duration_min": 5, "cue": "Even cubes.", "why": "Uniform pieces mix and eat better.", "watch_out": "" },
+      { "action": "Add banana and apple last and stir gently. Add a spoon of milk or yogurt if you like it creamy. Chill and serve.", "duration_min": 3, "cue": "Glossy, just-coated fruit.", "why": "Banana and apple brown and mush if mixed too early or too hard.", "watch_out": "A squeeze of lime keeps apple and banana from browning." }
+    ],
+    "doneness_signature": "A bright, fresh bowl of evenly cut fruit, lightly creamy if you like.",
+    "rescue": [
+      { "problem": "Fruit gone brown/mushy", "fix": "Toss with lime juice and serve soon; add fresh-cut fruit on top." }
+    ],
+    "level_up": [
+      { "touch": "Creamy parfait", "how": "Layer with yogurt and a scatter of groundnut or granola in a glass." }
+    ],
+    "active_minutes": 12,
+    "difficulty_dots": 1
+  },
+  {
+    "id": "DST-04",
+    "name": "Puff puff",
+    "meal_slot": "dessert",
+    "serves": 4,
+    "required_categories": ["flour", "yeast", "sugar"],
+    "optional_categories": ["nutmeg", "cooking_oil"],
+    "is_surprise": false,
+    "difficulty": {
+      "score": 3,
+      "label": "Intermediate",
+      "drivers": [
+        "The yeast rise can't be rushed and needs warmth",
+        "Frying at the right temperature so they cook through without burning",
+        "Getting the batter consistency right"
+      ]
+    },
+    "time": {
+      "prep_min": 8,
+      "active_cook_min": 12,
+      "passive_min": 55,
+      "total_min": 75,
+      "overlap_note": "The 45-60 minute rise is hands-off but unskippable — plan for it.",
+      "make_ahead": ["Mix the batter and let it rise"]
+    },
+    "equipment": ["Bowl", "Deep pot for frying"],
+    "ingredients": [
+      { "item": "Flour", "qty": "2 cups", "prep": "", "substitutes": [] },
+      { "item": "Sugar + yeast + salt", "qty": "3 tbsp + 1 tsp + pinch", "prep": "", "substitutes": [] },
+      { "item": "Nutmeg", "qty": "pinch (optional)", "prep": "", "substitutes": [] },
+      { "item": "Warm water + oil", "qty": "to mix + deep-fry", "prep": "", "substitutes": [] }
+    ],
+    "steps": [
+      { "action": "Mix the flour, sugar, yeast, salt and nutmeg. Add warm water slowly, stirring to a thick, stretchy batter (between cake batter and dough).", "duration_min": 6, "cue": "Thick batter that falls in a stretchy ribbon off the spoon.", "why": "Too runny and it won't hold a ball; too stiff and it won't puff.", "watch_out": "Use WARM, not hot, water — hot water kills the yeast." },
+      { "action": "Cover and leave in a warm spot until it doubles and looks bubbly, 45-60 minutes. Don't rush it.", "duration_min": 55, "cue": "Doubled in size, surface covered in bubbles.", "why": "This rise is the entire reason puff puff is fluffy. The old recipe buried it in the steps without counting the time.", "watch_out": "A cold room slows the rise — find somewhere warm." },
+      { "action": "Heat a deep pot of oil on medium. Test with a small drop — it should float up and brown gently, not burn fast.", "duration_min": 3, "cue": "A test drop rises and sizzles steadily.", "why": "Deep, medium-hot oil lets the balls cook through to the centre.", "watch_out": "Too hot = raw inside, burnt outside." },
+      { "action": "Scoop small balls of batter by hand or spoon into the oil. Fry, turning, 3-4 minutes until golden brown all over. Drain.", "duration_min": 9, "cue": "Round, deep golden, cooked to the centre.", "why": "Turning gives an even round shape and colour.", "watch_out": "Fry in batches so the oil stays hot." }
+    ],
+    "doneness_signature": "Round, golden, fluffy puff puff, soft and airy inside.",
+    "rescue": [
+      { "problem": "Dense, didn't puff", "fix": "Yeast was dead or the rise too short. Give the batter more warm-spot time; check the yeast is in date." },
+      { "problem": "Raw inside", "fix": "Lower the oil heat and fry a little longer so the centre cooks." }
+    ],
+    "level_up": [
+      { "touch": "Glazed or dusted", "how": "Toss warm in cinnamon-sugar, or drizzle with a chocolate or caramel glaze." }
+    ],
+    "active_minutes": 75,
+    "difficulty_dots": 3
+  },
+  {
+    "id": "DST-05",
+    "name": "Chin chin",
+    "meal_slot": "dessert",
+    "serves": 6,
+    "required_categories": ["flour", "sugar"],
+    "optional_categories": ["butter", "eggs", "nutmeg", "evaporated_milk", "cooking_oil"],
+    "is_surprise": false,
+    "difficulty": {
+      "score": 3,
+      "label": "Intermediate",
+      "drivers": [
+        "Making and rolling a firm dough by feel",
+        "Cutting evenly so pieces fry at the same rate",
+        "Frying low and slow so they crisp without burning"
+      ]
+    },
+    "time": {
+      "prep_min": 20,
+      "active_cook_min": 20,
+      "passive_min": 0,
+      "total_min": 40,
+      "overlap_note": "Cut all the dough before you start frying.",
+      "make_ahead": ["Make and cut the dough"]
+    },
+    "equipment": ["Bowl", "Rolling pin", "Deep pot"],
+    "ingredients": [
+      { "item": "Flour", "qty": "3 cups", "prep": "", "substitutes": [] },
+      { "item": "Sugar + salt + nutmeg", "qty": "1/2 cup + pinch + pinch", "prep": "", "substitutes": [] },
+      { "item": "Butter + egg + milk", "qty": "3 tbsp + 1 + a little", "prep": "", "substitutes": [] },
+      { "item": "Oil for frying", "qty": "deep-fry", "prep": "", "substitutes": [] }
+    ],
+    "steps": [
+      { "action": "Mix the flour, sugar, salt and nutmeg. Rub in the butter with your fingers until it looks like breadcrumbs.", "duration_min": 6, "cue": "Sandy, breadcrumb texture.", "why": "Rubbing in the butter makes the chin chin crisp and short.", "watch_out": "" },
+      { "action": "Add the egg and a little milk, and mix to a firm, smooth dough. Don't make it sticky.", "duration_min": 4, "cue": "Firm dough that holds together and isn't tacky.", "why": "Firm dough cuts cleanly and fries crunchy.", "watch_out": "Add liquid sparingly — sticky dough is hard to cut." },
+      { "action": "Roll the dough flat and cut into small squares or strips.", "duration_min": 10, "cue": "Even, small pieces.", "why": "Even pieces fry at the same rate.", "watch_out": "Thin = crunchy; thick = chewy. Pick your style and stay consistent." },
+      { "action": "Heat oil on medium and fry the pieces, stirring, 4-5 minutes until golden. Drain and cool.", "duration_min": 20, "cue": "Golden and they crisp further as they cool.", "why": "Low-and-slow frying dries them to a crunch without burning.", "watch_out": "Don't crowd the pot; stir so they brown evenly." }
+    ],
+    "doneness_signature": "Golden, crunchy little bites that keep for days in a sealed jar.",
+    "rescue": [
+      { "problem": "Soft, not crunchy", "fix": "Fry longer on lower heat to dry them out; they crisp as they cool." },
+      { "problem": "Browning too fast, raw inside", "fix": "Lower the heat — they need time, not high heat." }
+    ],
+    "level_up": [
+      { "touch": "Coconut crunch", "how": "Work desiccated coconut into the dough, or add a little orange zest." }
+    ],
+    "active_minutes": 40,
+    "difficulty_dots": 3
+  },
+  {
+    "id": "DST-06",
+    "name": "Banana & groundnut",
+    "meal_slot": "dessert",
+    "serves": 2,
+    "required_categories": ["banana", "groundnut"],
+    "optional_categories": [],
+    "is_surprise": false,
+    "difficulty": { "score": 1, "label": "Easy", "drivers": ["No cooking — peel and eat"] },
+    "time": { "prep_min": 3, "active_cook_min": 0, "passive_min": 0, "total_min": 3, "overlap_note": "", "make_ahead": [] },
+    "equipment": [],
+    "ingredients": [
+      { "item": "Ripe bananas", "qty": "2-3", "prep": "", "substitutes": [] },
+      { "item": "Roasted groundnut", "qty": "a handful", "prep": "", "substitutes": ["cashew", "tiger nut"] }
+    ],
+    "steps": [
+      { "action": "Peel the bananas.", "duration_min": 1, "cue": "", "why": "", "watch_out": "" },
+      { "action": "Eat alternating bites of banana and groundnut, or slice the banana into a bowl and scatter groundnut over.", "duration_min": 2, "cue": "Sweet meets savoury.", "why": "The classic Nigerian roadside pairing — no cooking.", "watch_out": "" }
+    ],
+    "doneness_signature": "Sweet banana with crunchy, salty groundnut.",
+    "rescue": [
+      { "problem": "Banana too soft", "fix": "Mash with the groundnut into a quick spread on bread." }
+    ],
+    "level_up": [
+      { "touch": "Honey-nut bowl", "how": "Slice the banana, scatter groundnut, drizzle honey and a pinch of cinnamon." }
+    ],
+    "active_minutes": 3,
+    "difficulty_dots": 1
+  },
+  {
+    "id": "DST-07",
+    "name": "Dodo (sweet fried plantain)",
+    "meal_slot": "dessert",
+    "serves": 3,
+    "required_categories": ["ripe_plantain", "cooking_oil"],
+    "optional_categories": [],
+    "is_surprise": false,
+    "difficulty": { "score": 1, "label": "Easy", "drivers": ["Quick frying", "Only care is not burning the sugar in very ripe plantain"] },
+    "time": { "prep_min": 4, "active_cook_min": 8, "passive_min": 0, "total_min": 12, "overlap_note": "", "make_ahead": [] },
+    "equipment": ["Frying pan"],
+    "ingredients": [
+      { "item": "Very ripe (black-spotted) plantains", "qty": "2", "prep": "Peeled and cut into cubes or diagonal slices.", "substitutes": [] },
+      { "item": "Oil for frying + salt", "qty": "to fry + pinch", "prep": "", "substitutes": [] }
+    ],
+    "steps": [
+      { "action": "Peel and cut the plantains into cubes or diagonal slices. The riper they are, the sweeter.", "duration_min": 4, "cue": "Even pieces.", "why": "Riper plantain caramelises more.", "watch_out": "" },
+      { "action": "Sprinkle lightly with salt to balance the sweetness.", "duration_min": 1, "cue": "Lightly seasoned.", "why": "Salt makes the sweetness pop.", "watch_out": "" },
+      { "action": "Heat oil on medium and fry 2-3 minutes each side until deep golden and caramelised at the edges. Drain.", "duration_min": 6, "cue": "Deep golden, caramelised edges, soft centre.", "why": "Medium heat caramelises without scorching the natural sugars.", "watch_out": "Very ripe plantain burns fast — watch it closely." }
+    ],
+    "doneness_signature": "Deep golden, caramelised, sweet-soft fried plantain.",
+    "rescue": [
+      { "problem": "Burning before soft", "fix": "Lower the heat; ripe plantain needs gentler frying." }
+    ],
+    "level_up": [
+      { "touch": "Dessert dodo", "how": "Dust warm with cinnamon-sugar, or serve with a scoop of ice cream." }
+    ],
+    "active_minutes": 12,
+    "difficulty_dots": 1
+  },
+  {
+    "id": "DST-08",
+    "name": "Zobo drink",
+    "meal_slot": "dessert",
+    "serves": 6,
+    "required_categories": ["zobo_hibiscus_leaves"],
+    "optional_categories": ["pineapple", "ginger", "sugar", "cloves"],
+    "is_surprise": true,
+    "surprise_note": "Most people buy zobo leaves to make tea-like drinks plain. Steeping it with pineapple skin and ginger makes a far better homemade chilled drink to close a meal.",
+    "difficulty": {
+      "score": 2,
+      "label": "Simple",
+      "drivers": ["Mostly hands-off boiling and steeping", "Only judgement is the sweetness and steep time"]
+    },
+    "time": {
+      "prep_min": 5,
+      "active_cook_min": 5,
+      "passive_min": 30,
+      "total_min": 40,
+      "overlap_note": "The boil and steep are hands-off; then it needs chilling time too.",
+      "make_ahead": ["Boil and chill ahead of serving"]
+    },
+    "equipment": ["Large pot", "Sieve"],
+    "ingredients": [
+      { "item": "Dried zobo (hibiscus) leaves", "qty": "2 cups", "prep": "Rinsed.", "substitutes": [] },
+      { "item": "Pineapple skins/chunks + ginger", "qty": "from 1 pineapple + a thumb", "prep": "", "substitutes": [] },
+      { "item": "Sugar + cloves", "qty": "to taste + a few (optional)", "prep": "", "substitutes": ["honey"] }
+    ],
+    "steps": [
+      { "action": "Boil the zobo leaves with the pineapple skins, ginger and cloves in plenty of water for 20 minutes.", "duration_min": 20, "cue": "The water turns deep red.", "why": "Boiling extracts the colour and flavour from the dried petals.", "watch_out": "Use plenty of water — it reduces as it boils." },
+      { "action": "Turn off the heat and let it steep another 10 minutes.", "duration_min": 10, "cue": "Deeper red, stronger aroma.", "why": "Steeping pulls out more flavour without boiling it bitter.", "watch_out": "" },
+      { "action": "Strain out the leaves and solids.", "duration_min": 3, "cue": "Clear, deep-red liquid.", "why": "", "watch_out": "" },
+      { "action": "Sweeten to taste while still warm so the sugar dissolves, then cool and chill.", "duration_min": 2, "cue": "Sweet, bright, ruby-red.", "why": "Sugar dissolves better in warm liquid.", "watch_out": "Serve cold — it's a chilled drink." }
+    ],
+    "doneness_signature": "A deep ruby-red, sweet-tart, ginger-bright chilled drink.",
+    "rescue": [
+      { "problem": "Too tart", "fix": "Add more sugar or pineapple juice." },
+      { "problem": "Weak colour/flavour", "fix": "Boil with more leaves and steep longer." }
+    ],
+    "level_up": [
+      { "touch": "Spiced party zobo", "how": "Add cinnamon stick, a splash of pineapple and orange juice, and serve over ice with mint." }
+    ],
+    "active_minutes": 40,
+    "difficulty_dots": 2
+  }
+]

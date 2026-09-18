@@ -1,0 +1,608 @@
+[
+  {
+    "id": "BRK-01",
+    "name": "Akamu (pap) & akara",
+    "meal_slot": "breakfast",
+    "serves": 4,
+    "required_categories": ["akamu_ogi_pap", "dried_beans_honey_beans"],
+    "optional_categories": ["alliums", "fresh_pepper", "evaporated_milk", "sugar"],
+    "is_surprise": false,
+    "difficulty": {
+      "score": 3,
+      "label": "Intermediate",
+      "drivers": [
+        "Peeling the beans for akara is slow hand-work",
+        "Deep-frying at the right oil temperature takes a watchful eye",
+        "Whisking air into the batter is what makes akara light — easy to skip"
+      ]
+    },
+    "time": {
+      "prep_min": 20,
+      "active_cook_min": 15,
+      "passive_min": 5,
+      "total_min": 40,
+      "overlap_note": "Peel the beans ahead; the pap takes 2 minutes once the akara is frying.",
+      "make_ahead": ["Soak and peel the beans"]
+    },
+    "equipment": ["Blender", "Deep frying pan", "Whisk or hand"],
+    "ingredients": [
+      { "item": "Akamu (ogi/pap)", "qty": "2 wraps", "prep": "", "substitutes": ["4 tbsp custard powder as a faster swap"] },
+      { "item": "Honey beans", "qty": "2 cups", "prep": "Soaked, skins rubbed off and rinsed clean.", "substitutes": [] },
+      { "item": "Onion + pepper", "qty": "1 small + 1", "prep": "Blended into the beans.", "substitutes": [] },
+      { "item": "Salt + oil for frying", "qty": "to taste + deep-fry", "prep": "", "substitutes": [] },
+      { "item": "Evaporated milk + sugar", "qty": "to taste", "prep": "For the pap (optional).", "substitutes": [] }
+    ],
+    "steps": [
+      { "action": "Rub the soaked beans between your palms to remove the skins, rinsing them away until the beans are clean.", "duration_min": 12, "cue": "Beans are pale and skinless.", "why": "Skins make akara grainy and dark. Peeling is the effort that buys a smooth, golden fritter.", "watch_out": "Float the skins off the top of the water." },
+      { "action": "Blend the peeled beans with the onion, pepper and a little salt into a thick batter, then whisk it hard by hand for 2 minutes.", "duration_min": 4, "cue": "Batter is thick, pale and fluffy; a little dropped in water floats.", "why": "Whisking traps air — that's what makes akara puff up light instead of dense.", "watch_out": "Don't add much water; runny batter spreads and soaks oil." },
+      { "action": "Heat oil in a deep pan. Test with a drop of batter — it should rise and sizzle. Scoop small balls in and fry until golden brown, turning.", "duration_min": 9, "cue": "Deep golden brown all over, ~2-3 min each side.", "why": "Right-temperature oil seals the outside so they don't drink oil.", "watch_out": "Too-hot oil burns the outside raw inside; too-cool oil makes them greasy. Medium-hot." },
+      { "action": "For the pap: stir the akamu with a little cold water to a smooth, lump-free paste.", "duration_min": 2, "cue": "Smooth paste, no lumps.", "why": "Lumps won't dissolve once the hot water hits.", "watch_out": "" },
+      { "action": "Pour boiling water over the paste while stirring fast until it thickens to a smooth, glossy pap. Add milk and sugar to taste.", "duration_min": 2, "cue": "Thick, glossy, pours slowly off the spoon.", "why": "Fast stirring with boiling water cooks and thickens it evenly.", "watch_out": "Too thick? Add a splash more hot water." }
+    ],
+    "doneness_signature": "Light, golden akara balls beside a smooth, glossy bowl of hot pap.",
+    "rescue": [
+      { "problem": "Akara soaking up oil / falling apart", "fix": "Batter is too wet or oil too cool. Whisk in a spoon of bean flour and raise the heat slightly." },
+      { "problem": "Pap is lumpy", "fix": "Whisk hard, or pass it through a sieve." }
+    ],
+    "level_up": [
+      { "touch": "Crunchier akara", "how": "Add finely diced onion and a pinch of crayfish to the batter." }
+    ],
+    "active_minutes": 40,
+    "difficulty_dots": 3
+  },
+  {
+    "id": "BRK-02",
+    "name": "Bread & egg sauce",
+    "meal_slot": "breakfast",
+    "serves": 2,
+    "required_categories": ["sliced_bread", "eggs", "fresh_tomato_family", "alliums"],
+    "optional_categories": ["fresh_pepper", "sardine_or_corned_beef", "cooking_oil"],
+    "is_surprise": false,
+    "difficulty": {
+      "score": 1,
+      "label": "Easy",
+      "drivers": ["One pan, a few minutes", "Only skill is not overcooking the eggs"]
+    },
+    "time": {
+      "prep_min": 4,
+      "active_cook_min": 8,
+      "passive_min": 0,
+      "total_min": 12,
+      "overlap_note": "",
+      "make_ahead": []
+    },
+    "equipment": ["Frying pan"],
+    "ingredients": [
+      { "item": "Bread", "qty": "Half a loaf", "prep": "", "substitutes": [] },
+      { "item": "Eggs", "qty": "3", "prep": "", "substitutes": [] },
+      { "item": "Tomatoes + onion", "qty": "2 + 1 small", "prep": "Diced", "substitutes": [] },
+      { "item": "Pepper", "qty": "1 (optional)", "prep": "Diced", "substitutes": [] },
+      { "item": "Vegetable oil + salt", "qty": "2 tbsp + to taste", "prep": "", "substitutes": [] }
+    ],
+    "steps": [
+      { "action": "Heat the oil in a pan and stir the onion 1 minute until soft.", "duration_min": 2, "cue": "Onion soft.", "why": "Base flavour.", "watch_out": "" },
+      { "action": "Add the diced tomatoes and pepper, cook 3-4 minutes until softened and the rawness goes.", "duration_min": 4, "cue": "Tomatoes break into a loose sauce.", "why": "Cooking out the raw tomato.", "watch_out": "" },
+      { "action": "Crack in the eggs, wait 30 seconds, then stir to scramble into the tomato mix. Season with salt and take off the heat while still soft.", "duration_min": 2, "cue": "Eggs just set, glossy and soft.", "why": "Eggs keep cooking off the heat — stop early.", "watch_out": "Overcooking makes them rubbery." }
+    ],
+    "doneness_signature": "Soft, glossy tomato-egg sauce to scoop with fresh bread.",
+    "rescue": [
+      { "problem": "Eggs overcooked", "fix": "Stir a little fresh diced tomato through off the heat to loosen them." }
+    ],
+    "level_up": [
+      { "touch": "Loaded sauce", "how": "Flake in sardine or corned beef and a pinch of crayfish for a fuller, richer sauce." }
+    ],
+    "active_minutes": 12,
+    "difficulty_dots": 1
+  },
+  {
+    "id": "BRK-03",
+    "name": "Fried plantain & egg",
+    "meal_slot": "breakfast",
+    "serves": 2,
+    "required_categories": ["ripe_plantain", "eggs", "cooking_oil"],
+    "optional_categories": ["alliums", "fresh_tomato_family", "fresh_pepper"],
+    "is_surprise": false,
+    "difficulty": {
+      "score": 1,
+      "label": "Easy",
+      "drivers": ["Quick and forgiving", "Only watch the plantain doesn't burn"]
+    },
+    "time": {
+      "prep_min": 4,
+      "active_cook_min": 11,
+      "passive_min": 0,
+      "total_min": 15,
+      "overlap_note": "",
+      "make_ahead": []
+    },
+    "equipment": ["Frying pan"],
+    "ingredients": [
+      { "item": "Ripe plantains", "qty": "2", "prep": "Peeled and sliced on the diagonal.", "substitutes": [] },
+      { "item": "Eggs", "qty": "3", "prep": "Beaten with a pinch of salt.", "substitutes": [] },
+      { "item": "Onion + tomato", "qty": "half + 1 (optional)", "prep": "Diced", "substitutes": [] },
+      { "item": "Oil for frying + salt", "qty": "to fry + to taste", "prep": "", "substitutes": [] }
+    ],
+    "steps": [
+      { "action": "Peel and slice the plantains diagonally and sprinkle with a little salt.", "duration_min": 3, "cue": "Even slices.", "why": "Salt balances the sweetness.", "watch_out": "Riper plantain = sweeter and softer." },
+      { "action": "Heat oil and fry the plantain 2-3 minutes each side until golden. Drain.", "duration_min": 6, "cue": "Deep golden, caramelised edges.", "why": "Caramelisation is the sweetness you want.", "watch_out": "Medium heat — high heat burns the outside before the inside cooks." },
+      { "action": "Pour the beaten egg (with onion/tomato if using) into the same pan on low heat. Let it set 1 minute, then fold or scramble.", "duration_min": 2, "cue": "Egg set but still soft.", "why": "Low heat keeps the egg tender.", "watch_out": "Don't dry it out." }
+    ],
+    "doneness_signature": "Sweet golden plantain beside soft, just-set eggs.",
+    "rescue": [
+      { "problem": "Plantain burnt outside, raw inside", "fix": "Lower the heat and give each side more time." }
+    ],
+    "level_up": [
+      { "touch": "Egg upgrade", "how": "Fold diced tomato, onion and pepper into the egg for a mini-frittata." }
+    ],
+    "active_minutes": 15,
+    "difficulty_dots": 1
+  },
+  {
+    "id": "BRK-04",
+    "name": "Custard & moi moi",
+    "meal_slot": "breakfast",
+    "serves": 2,
+    "required_categories": ["custard_powder", "dried_beans_honey_beans"],
+    "optional_categories": ["evaporated_milk", "sugar", "eggs", "fresh_pepper"],
+    "is_surprise": false,
+    "difficulty": {
+      "score": 1,
+      "label": "Easy",
+      "drivers": ["The custard is a 5-minute job", "Assumes the moi moi is already made or bought"]
+    },
+    "time": {
+      "prep_min": 2,
+      "active_cook_min": 6,
+      "passive_min": 0,
+      "total_min": 8,
+      "overlap_note": "This assumes pre-made or store-bought moi moi. Making moi moi from scratch is a separate 90-minute recipe (see Moi moi).",
+      "make_ahead": ["Make or buy the moi moi"]
+    },
+    "equipment": ["Bowl", "Kettle"],
+    "ingredients": [
+      { "item": "Custard powder", "qty": "4 tbsp", "prep": "", "substitutes": [] },
+      { "item": "Moi moi", "qty": "2 pieces", "prep": "Pre-made or bought; warm it through.", "substitutes": [] },
+      { "item": "Sugar + evaporated milk", "qty": "to taste", "prep": "", "substitutes": [] }
+    ],
+    "steps": [
+      { "action": "Mix the custard powder with a little cold water to a smooth paste with no lumps.", "duration_min": 2, "cue": "Smooth, pourable paste.", "why": "Lumps won't dissolve once boiling water hits.", "watch_out": "" },
+      { "action": "Pour boiling water onto the paste while stirring quickly until it thickens, turns glossy and changes colour.", "duration_min": 3, "cue": "Thick, smooth, glossy custard.", "why": "Fast stirring cooks it evenly.", "watch_out": "Too thick? Add a splash more hot water." },
+      { "action": "Sweeten with sugar and milk, and serve with the warmed moi moi.", "duration_min": 1, "cue": "", "why": "A gentle, classic morning plate.", "watch_out": "" }
+    ],
+    "doneness_signature": "Smooth glossy custard beside warm, savoury moi moi.",
+    "rescue": [
+      { "problem": "Custard lumpy", "fix": "Whisk hard or sieve it." }
+    ],
+    "level_up": [
+      { "touch": "Richer custard", "how": "Use hot milk instead of water for the pour, and a pinch of nutmeg." }
+    ],
+    "active_minutes": 8,
+    "difficulty_dots": 1
+  },
+  {
+    "id": "BRK-05",
+    "name": "Boiled yam & egg sauce",
+    "meal_slot": "breakfast",
+    "serves": 2,
+    "required_categories": ["yam_cut_pieces", "eggs", "fresh_tomato_family", "alliums"],
+    "optional_categories": ["fresh_pepper", "cooking_oil", "dried_crayfish"],
+    "is_surprise": false,
+    "difficulty": {
+      "score": 1,
+      "label": "Easy",
+      "drivers": ["Two simple parts in parallel", "Just don't overcook the yam"]
+    },
+    "time": {
+      "prep_min": 6,
+      "active_cook_min": 9,
+      "passive_min": 15,
+      "total_min": 30,
+      "overlap_note": "Make the egg sauce while the yam boils.",
+      "make_ahead": []
+    },
+    "equipment": ["Pot", "Frying pan"],
+    "ingredients": [
+      { "item": "Yam", "qty": "Half a tuber", "prep": "Peeled and cut into medium slices.", "substitutes": [] },
+      { "item": "Eggs", "qty": "3", "prep": "", "substitutes": [] },
+      { "item": "Tomatoes + onion", "qty": "2 + 1", "prep": "Diced", "substitutes": [] },
+      { "item": "Pepper", "qty": "1 (optional)", "prep": "Diced", "substitutes": [] },
+      { "item": "Oil + salt", "qty": "2 tbsp + to taste", "prep": "", "substitutes": [] }
+    ],
+    "steps": [
+      { "action": "Boil the yam in salted water until a fork goes in easily, about 15-20 minutes.", "duration_min": 18, "cue": "Fork slides in cleanly.", "why": "Tender but holding shape.", "watch_out": "Don't overcook to mush." },
+      { "action": "While it boils, heat oil and fry the onion 1 minute.", "duration_min": 2, "cue": "Onion soft.", "why": "Base.", "watch_out": "" },
+      { "action": "Add tomatoes and pepper, cook 3-4 minutes until soft.", "duration_min": 4, "cue": "Loose sauce.", "why": "Cook out the raw tomato.", "watch_out": "" },
+      { "action": "Crack in the eggs, wait 30 seconds, scramble into the sauce, season with salt.", "duration_min": 3, "cue": "Soft, just-set eggs.", "why": "Pull them slightly underdone.", "watch_out": "" }
+    ],
+    "doneness_signature": "Tender yam under a soft tomato-egg sauce.",
+    "rescue": [
+      { "problem": "Yam fell apart", "fix": "Mash with oil and salt and serve as yam mash." }
+    ],
+    "level_up": [
+      { "touch": "Depth", "how": "Add a pinch of crayfish and a little palm oil to the sauce." }
+    ],
+    "active_minutes": 30,
+    "difficulty_dots": 1
+  },
+  {
+    "id": "BRK-06",
+    "name": "Sweet potato & garden egg sauce",
+    "meal_slot": "breakfast",
+    "serves": 3,
+    "required_categories": ["sweet_potato", "garden_egg", "fresh_tomato_family", "alliums"],
+    "optional_categories": ["palm_oil", "fresh_pepper", "dried_crayfish"],
+    "is_surprise": true,
+    "surprise_note": "Most people boil or fry sweet potato plain. Pairing it with a quick garden egg sauce turns it into a proper savoury breakfast users rarely think to make.",
+    "difficulty": {
+      "score": 2,
+      "label": "Simple",
+      "drivers": ["Two parts, both easy", "Garden egg sauce is unfamiliar to some but forgiving"]
+    },
+    "time": {
+      "prep_min": 8,
+      "active_cook_min": 12,
+      "passive_min": 10,
+      "total_min": 30,
+      "overlap_note": "Make the sauce while the sweet potato boils.",
+      "make_ahead": []
+    },
+    "equipment": ["Pot", "Frying pan"],
+    "ingredients": [
+      { "item": "Sweet potatoes", "qty": "3-4", "prep": "Peeled and cut.", "substitutes": ["yam", "Irish potato"] },
+      { "item": "Garden eggs", "qty": "4-5", "prep": "Diced.", "substitutes": ["aubergine"] },
+      { "item": "Tomatoes + onion", "qty": "2 + 1", "prep": "Diced", "substitutes": [] },
+      { "item": "Palm oil + crayfish + salt", "qty": "2 tbsp + 1 tbsp + to taste", "prep": "Crayfish ground.", "substitutes": [] },
+      { "item": "Pepper", "qty": "1 (optional)", "prep": "Diced", "substitutes": [] }
+    ],
+    "steps": [
+      { "action": "Boil the sweet potato in salted water 12-15 minutes until soft. Drain.", "duration_min": 14, "cue": "Fork-tender.", "why": "Soft but not collapsing.", "watch_out": "Sweet potato cooks faster than yam — check early." },
+      { "action": "Heat the palm oil and fry the onion 1 minute.", "duration_min": 2, "cue": "Onion soft.", "why": "Base.", "watch_out": "Don't smoke the palm oil." },
+      { "action": "Add the tomatoes, pepper and diced garden egg, cook 5 minutes until soft.", "duration_min": 5, "cue": "Garden egg soft and breaking down.", "why": "Garden egg gives a mild, slightly bitter body to the sauce.", "watch_out": "" },
+      { "action": "Add crayfish and salt, and mash slightly so the sauce holds together.", "duration_min": 2, "cue": "Thick, cohesive sauce.", "why": "Mashing binds it.", "watch_out": "" }
+    ],
+    "doneness_signature": "Soft sweet potato under a thick, savoury garden-egg sauce.",
+    "rescue": [
+      { "problem": "Sauce too loose", "fix": "Mash more garden egg in and simmer to thicken." }
+    ],
+    "level_up": [
+      { "touch": "Niger-Delta style", "how": "Add more palm oil and a little ground fish for a richer native sauce." }
+    ],
+    "active_minutes": 30,
+    "difficulty_dots": 2
+  },
+  {
+    "id": "BRK-07",
+    "name": "Indomie & egg",
+    "meal_slot": "breakfast",
+    "serves": 2,
+    "required_categories": ["instant_noodles", "eggs"],
+    "optional_categories": ["alliums", "fresh_pepper", "carrots", "cooking_oil"],
+    "is_surprise": false,
+    "difficulty": {
+      "score": 1,
+      "label": "Easy",
+      "drivers": ["Fast and forgiving", "Only don't overcook the noodles"]
+    },
+    "time": {
+      "prep_min": 3,
+      "active_cook_min": 9,
+      "passive_min": 0,
+      "total_min": 12,
+      "overlap_note": "",
+      "make_ahead": []
+    },
+    "equipment": ["Pot", "Frying pan"],
+    "ingredients": [
+      { "item": "Instant noodles", "qty": "2 packs", "prep": "", "substitutes": [] },
+      { "item": "Eggs", "qty": "2", "prep": "Beaten.", "substitutes": [] },
+      { "item": "Onion + pepper", "qty": "half + 1 (optional)", "prep": "Sliced", "substitutes": [] },
+      { "item": "Oil", "qty": "1 tbsp", "prep": "", "substitutes": [] }
+    ],
+    "steps": [
+      { "action": "Boil the noodles with the seasoning for 3 minutes, then drain most of the water.", "duration_min": 4, "cue": "Cooked but still with a little bite.", "why": "Overcooked noodles go soft and break up.", "watch_out": "Don't drown them — keep just a little sauce." },
+      { "action": "In a separate pan, heat the oil and fry the onion and pepper 1 minute.", "duration_min": 2, "cue": "Soft and fragrant.", "why": "Adds freshness beyond the seasoning packet.", "watch_out": "" },
+      { "action": "Pour in the beaten egg and scramble, then toss the drained noodles in and mix for 1 minute.", "duration_min": 3, "cue": "Egg set, noodles coated.", "why": "Combining in the pan marries everything.", "watch_out": "" }
+    ],
+    "doneness_signature": "Springy noodles tangled with soft scrambled egg and onion.",
+    "rescue": [
+      { "problem": "Noodles mushy", "fix": "Drain fully and stir-fry a minute to dry them out." }
+    ],
+    "level_up": [
+      { "touch": "Veg & protein boost", "how": "Add diced carrot, cabbage and leftover chicken or sausage." }
+    ],
+    "active_minutes": 12,
+    "difficulty_dots": 1
+  },
+  {
+    "id": "BRK-08",
+    "name": "Akara sandwich (akara & bread)",
+    "meal_slot": "breakfast",
+    "serves": 2,
+    "required_categories": ["dried_beans_honey_beans", "sliced_bread"],
+    "optional_categories": ["alliums", "fresh_pepper", "butter"],
+    "is_surprise": true,
+    "surprise_note": "Akara is usually eaten with pap. Pressing it into bread as a sandwich is a street-style combo many home cooks never try.",
+    "difficulty": {
+      "score": 3,
+      "label": "Intermediate",
+      "drivers": ["Peeling beans is slow hand-work", "Deep-frying at the right temperature", "Whisking air into the batter for light akara"]
+    },
+    "time": {
+      "prep_min": 18,
+      "active_cook_min": 9,
+      "passive_min": 0,
+      "total_min": 27,
+      "overlap_note": "Peel the beans ahead to cut this in half.",
+      "make_ahead": ["Soak and peel the beans"]
+    },
+    "equipment": ["Blender", "Deep frying pan"],
+    "ingredients": [
+      { "item": "Honey beans", "qty": "2 cups", "prep": "Soaked and peeled.", "substitutes": [] },
+      { "item": "Onion + pepper", "qty": "1 + 1", "prep": "Blended into the beans.", "substitutes": [] },
+      { "item": "Soft bread", "qty": "4 slices", "prep": "", "substitutes": [] },
+      { "item": "Salt + oil for frying", "qty": "to taste + deep-fry", "prep": "", "substitutes": [] },
+      { "item": "Butter", "qty": "optional", "prep": "", "substitutes": [] }
+    ],
+    "steps": [
+      { "action": "Rub the soaked beans between your palms to remove the skins and rinse them clean.", "duration_min": 12, "cue": "Pale, skinless beans.", "why": "Smooth akara needs peeled beans.", "watch_out": "Float the skins off the top." },
+      { "action": "Blend the beans with onion, pepper and salt into a thick batter and whisk hard 2 minutes until light.", "duration_min": 4, "cue": "Thick, fluffy; a drop floats in water.", "why": "Trapped air = light akara.", "watch_out": "Keep the batter thick." },
+      { "action": "Fry small balls in hot oil 2-3 minutes each side until golden. Drain.", "duration_min": 7, "cue": "Deep golden, crisp outside.", "why": "Right oil temp seals them.", "watch_out": "Medium-hot oil." },
+      { "action": "Lightly butter the bread, press 2-3 warm akara balls in, close and gently flatten.", "duration_min": 2, "cue": "Akara squashed into the bread.", "why": "Warm akara softens into the bread like a street sandwich.", "watch_out": "" }
+    ],
+    "doneness_signature": "Soft bread pressed around crunchy-then-fluffy warm akara.",
+    "rescue": [
+      { "problem": "Akara greasy", "fix": "Oil too cool — raise the heat and drain on paper." }
+    ],
+    "level_up": [
+      { "touch": "Spicy sandwich", "how": "Spread a little pepper sauce or ketchup and add sliced onion." }
+    ],
+    "active_minutes": 27,
+    "difficulty_dots": 3
+  },
+  {
+    "id": "BRK-09",
+    "name": "Golden morn / cereal & milk",
+    "meal_slot": "breakfast",
+    "serves": 1,
+    "required_categories": ["cereal_golden_morn"],
+    "optional_categories": ["evaporated_milk", "sugar", "groundnut", "banana"],
+    "is_surprise": false,
+    "difficulty": {
+      "score": 1,
+      "label": "Easy",
+      "drivers": ["No cooking — pure assembly"]
+    },
+    "time": {
+      "prep_min": 2,
+      "active_cook_min": 0,
+      "passive_min": 0,
+      "total_min": 2,
+      "overlap_note": "",
+      "make_ahead": []
+    },
+    "equipment": ["Bowl"],
+    "ingredients": [
+      { "item": "Cereal or Golden Morn", "qty": "1 bowl", "prep": "", "substitutes": [] },
+      { "item": "Milk + sugar", "qty": "to taste", "prep": "", "substitutes": [] },
+      { "item": "Groundnut, sliced banana", "qty": "optional", "prep": "", "substitutes": [] }
+    ],
+    "steps": [
+      { "action": "Pour the cereal into a bowl.", "duration_min": 1, "cue": "", "why": "", "watch_out": "" },
+      { "action": "Add hot or cold milk/water to your preferred thickness. Sweeten and top with groundnut or banana.", "duration_min": 1, "cue": "Golden Morn thickens as it sits — add extra liquid.", "why": "The no-cook option for rushed mornings.", "watch_out": "" }
+    ],
+    "doneness_signature": "A quick, sweet, no-cook bowl with crunch on top.",
+    "rescue": [
+      { "problem": "Too thick", "fix": "Stir in more milk or water." }
+    ],
+    "level_up": [
+      { "touch": "Protein morning", "how": "Add groundnut, sliced banana and a spoon of powdered milk for a fuller bowl." }
+    ],
+    "active_minutes": 2,
+    "difficulty_dots": 1
+  },
+  {
+    "id": "BRK-10",
+    "name": "Nigerian pancakes",
+    "meal_slot": "breakfast",
+    "serves": 3,
+    "required_categories": ["flour", "eggs", "fresh_tomato_family", "alliums"],
+    "optional_categories": ["evaporated_milk", "sugar", "fresh_pepper", "cooking_oil"],
+    "is_surprise": false,
+    "difficulty": {
+      "score": 2,
+      "label": "Simple",
+      "drivers": ["Getting a smooth, pourable batter", "Flipping thin pancakes without tearing"]
+    },
+    "time": {
+      "prep_min": 8,
+      "active_cook_min": 12,
+      "passive_min": 5,
+      "total_min": 25,
+      "overlap_note": "The batter rests 5 minutes while the pan heats.",
+      "make_ahead": []
+    },
+    "equipment": ["Bowl", "Flat pan", "Blender"],
+    "ingredients": [
+      { "item": "Flour", "qty": "1.5 cups", "prep": "", "substitutes": [] },
+      { "item": "Eggs", "qty": "2", "prep": "", "substitutes": [] },
+      { "item": "Tomato + onion + pepper", "qty": "1 + half + small", "prep": "Blended fine.", "substitutes": [] },
+      { "item": "Sugar + salt + milk", "qty": "pinch + pinch + a little", "prep": "", "substitutes": [] },
+      { "item": "Oil for the pan", "qty": "a little", "prep": "", "substitutes": [] }
+    ],
+    "steps": [
+      { "action": "Mix the flour, eggs, blended tomato-onion, sugar, salt and enough water/milk into a smooth, pourable batter (thinner than cake batter).", "duration_min": 5, "cue": "Smooth and runs off the spoon in a thin stream.", "why": "Thin batter makes thin, foldable Nigerian pancakes.", "watch_out": "Whisk out lumps." },
+      { "action": "Let the batter rest 5 minutes.", "duration_min": 5, "cue": "Bubbles settle.", "why": "Resting hydrates the flour for a smoother pancake.", "watch_out": "" },
+      { "action": "Heat a lightly oiled flat pan on medium, pour in a thin layer and swirl to spread.", "duration_min": 2, "cue": "Batter coats the pan thinly.", "why": "Thin and even cooks fast and folds neatly.", "watch_out": "Too much oil makes it fry rather than set." },
+      { "action": "Cook 1-2 minutes until the edges lift and the underside is golden, then flip and cook 1 minute more.", "duration_min": 5, "cue": "Golden underside, edges lifting.", "why": "Lifting edges mean it's ready to flip.", "watch_out": "Flip with a wide turner so it doesn't tear." }
+    ],
+    "doneness_signature": "Thin, soft, savoury-sweet pancakes flecked with tomato and onion.",
+    "rescue": [
+      { "problem": "Pancakes tearing on the flip", "fix": "Let the underside set fully before flipping; use a wide spatula." },
+      { "problem": "Too thick/heavy", "fix": "Thin the batter with a little more milk or water." }
+    ],
+    "level_up": [
+      { "touch": "Sweet version", "how": "Skip the pepper, add more sugar, milk and a pinch of nutmeg, and serve with honey." }
+    ],
+    "active_minutes": 25,
+    "difficulty_dots": 2
+  },
+  {
+    "id": "BRK-11",
+    "name": "Akamu & moi moi",
+    "meal_slot": "breakfast",
+    "serves": 2,
+    "required_categories": ["akamu_ogi_pap", "dried_beans_honey_beans"],
+    "optional_categories": ["evaporated_milk", "sugar", "eggs", "fresh_pepper"],
+    "is_surprise": false,
+    "difficulty": {
+      "score": 1,
+      "label": "Easy",
+      "drivers": ["The pap is a 2-minute job", "Assumes the moi moi is already made or bought"]
+    },
+    "time": {
+      "prep_min": 2,
+      "active_cook_min": 4,
+      "passive_min": 0,
+      "total_min": 6,
+      "overlap_note": "Assumes pre-made moi moi (see Moi moi for the 90-minute from-scratch version).",
+      "make_ahead": ["Make or buy the moi moi"]
+    },
+    "equipment": ["Bowl", "Kettle"],
+    "ingredients": [
+      { "item": "Akamu (ogi/pap)", "qty": "2 wraps", "prep": "", "substitutes": [] },
+      { "item": "Moi moi", "qty": "2 pieces", "prep": "Pre-made; warm through.", "substitutes": [] },
+      { "item": "Milk + sugar", "qty": "to taste", "prep": "", "substitutes": [] }
+    ],
+    "steps": [
+      { "action": "Mix the akamu with cold water to a smooth, lump-free paste.", "duration_min": 2, "cue": "Smooth paste.", "why": "Lumps won't dissolve in hot water.", "watch_out": "" },
+      { "action": "Pour boiling water over it while stirring fast until thick and glossy. Sweeten with milk and sugar.", "duration_min": 2, "cue": "Thick, glossy pap.", "why": "Fast stirring cooks it evenly.", "watch_out": "Adjust thickness with hot water." },
+      { "action": "Warm the moi moi and serve together.", "duration_min": 1, "cue": "", "why": "Light, smooth and filling.", "watch_out": "" }
+    ],
+    "doneness_signature": "Smooth glossy pap with warm savoury moi moi.",
+    "rescue": [
+      { "problem": "Pap lumpy", "fix": "Whisk hard or sieve." }
+    ],
+    "level_up": [
+      { "touch": "Richer pap", "how": "Make it with hot milk and a pinch of nutmeg." }
+    ],
+    "active_minutes": 6,
+    "difficulty_dots": 1
+  },
+  {
+    "id": "BRK-12",
+    "name": "Fried yam & pepper sauce",
+    "meal_slot": "breakfast",
+    "serves": 2,
+    "required_categories": ["yam_cut_pieces", "fresh_pepper", "fresh_tomato_family", "alliums", "cooking_oil"],
+    "optional_categories": ["dried_crayfish", "sardine_or_corned_beef"],
+    "is_surprise": false,
+    "difficulty": {
+      "score": 2,
+      "label": "Simple",
+      "drivers": ["Two parts: fry the yam, fry the sauce", "Frying yam to golden without burning needs attention"]
+    },
+    "time": {
+      "prep_min": 7,
+      "active_cook_min": 18,
+      "passive_min": 0,
+      "total_min": 25,
+      "overlap_note": "Start the sauce while the yam fries.",
+      "make_ahead": ["Blend the pepper-tomato"]
+    },
+    "equipment": ["Frying pan", "Small pot"],
+    "ingredients": [
+      { "item": "Yam", "qty": "Half a tuber", "prep": "Peeled and cut into chips or slices.", "substitutes": ["sweet potato"] },
+      { "item": "Peppers + tomatoes + onion", "qty": "2-3 + 2 + 1", "prep": "Blended chunky.", "substitutes": [] },
+      { "item": "Oil for the sauce + frying", "qty": "2 tbsp + to fry", "prep": "", "substitutes": [] },
+      { "item": "Salt + stock cube", "qty": "to taste + 1", "prep": "", "substitutes": [] }
+    ],
+    "steps": [
+      { "action": "Salt the yam slices, heat oil, and fry 3-4 minutes each side until golden. Drain.", "duration_min": 9, "cue": "Crisp, golden outside, soft inside.", "why": "Golden crust, fluffy centre is the goal.", "watch_out": "Medium heat — high heat burns before the inside cooks." },
+      { "action": "In a separate pan, heat 2 tbsp oil and pour in the blended pepper-tomato.", "duration_min": 2, "cue": "Mix bubbles in the oil.", "why": "Start of the sauce.", "watch_out": "It splatters." },
+      { "action": "Fry the sauce 6-8 minutes until the rawness goes and oil floats on top. Add salt and stock cube.", "duration_min": 7, "cue": "Thick, oil floating, no raw smell.", "why": "Frying out the raw pepper makes a smooth dipping sauce.", "watch_out": "Stir so it doesn't catch." }
+    ],
+    "doneness_signature": "Golden fried yam with a thick, oily, fiery pepper dipping sauce.",
+    "rescue": [
+      { "problem": "Yam hard inside", "fix": "Lower heat and fry longer, or par-boil the slices 5 minutes before frying." }
+    ],
+    "level_up": [
+      { "touch": "Loaded sauce", "how": "Flake sardine or corned beef into the pepper sauce." }
+    ],
+    "active_minutes": 25,
+    "difficulty_dots": 2
+  },
+  {
+    "id": "BRK-13",
+    "name": "Egg & veggie sandwich",
+    "meal_slot": "breakfast",
+    "serves": 2,
+    "required_categories": ["sliced_bread", "eggs"],
+    "optional_categories": ["fresh_tomato_family", "alliums", "fresh_pepper", "sardine_or_corned_beef", "butter"],
+    "is_surprise": false,
+    "difficulty": {
+      "score": 1,
+      "label": "Easy",
+      "drivers": ["One pan, a few minutes", "Only skill is not overcooking the egg"]
+    },
+    "time": { "prep_min": 5, "active_cook_min": 8, "passive_min": 0, "total_min": 13, "overlap_note": "", "make_ahead": [] },
+    "equipment": ["Frying pan"],
+    "ingredients": [
+      { "item": "Bread", "qty": "4 slices", "prep": "", "substitutes": [] },
+      { "item": "Eggs", "qty": "3", "prep": "Beaten", "substitutes": [] },
+      { "item": "Tomato + onion", "qty": "1 + half", "prep": "Diced small", "substitutes": [] },
+      { "item": "Pepper", "qty": "1 (optional)", "prep": "Diced", "substitutes": [] },
+      { "item": "Butter + salt", "qty": "to spread + to taste", "prep": "", "substitutes": [] }
+    ],
+    "steps": [
+      { "action": "Beat the eggs with the diced tomato, onion, pepper and a pinch of salt.", "duration_min": 2, "cue": "Veg evenly mixed through the egg.", "why": "Mixing the veg in makes a filling that holds together in the bread.", "watch_out": "" },
+      { "action": "Heat a little butter or oil and pour in the egg. Let it set into a flat omelette, then fold to the size of your bread.", "duration_min": 5, "cue": "Egg just set, still soft, lightly golden underneath.", "why": "A folded omelette sits neatly in a sandwich; soft egg keeps it moist.", "watch_out": "Low-medium heat — don't brown it hard or it goes rubbery." },
+      { "action": "Lightly butter the bread, lay the omelette in, close and press. Toast in the pan 1 minute a side if you like it crisp.", "duration_min": 2, "cue": "Golden, warm, holds together when cut.", "why": "Toasting melts the butter in and crisps the outside.", "watch_out": "" }
+    ],
+    "doneness_signature": "A warm, soft-centred egg sandwich, golden outside, veg flecked through.",
+    "rescue": [
+      { "problem": "Egg overcooked/dry", "fix": "Add a thin smear of butter or a slice of tomato inside to bring back moisture." }
+    ],
+    "level_up": [
+      { "touch": "Loaded club", "how": "Add flaked sardine or corned beef and a slice of cheese before you close it." }
+    ],
+    "active_minutes": 13,
+    "difficulty_dots": 1
+  },
+  {
+    "id": "BRK-14",
+    "name": "French toast (sweet)",
+    "meal_slot": "breakfast",
+    "serves": 2,
+    "required_categories": ["sliced_bread", "eggs"],
+    "optional_categories": ["evaporated_milk", "sugar", "nutmeg", "butter"],
+    "is_surprise": true,
+    "surprise_note": "Most people only think of bread for sandwiches — dipped in sweet egg and fried, the same loaf becomes a soft, golden treat.",
+    "difficulty": {
+      "score": 1,
+      "label": "Easy",
+      "drivers": ["Dip and fry", "Only watch the heat so it doesn't burn before it cooks through"]
+    },
+    "time": { "prep_min": 4, "active_cook_min": 9, "passive_min": 0, "total_min": 13, "overlap_note": "", "make_ahead": [] },
+    "equipment": ["Bowl", "Frying pan"],
+    "ingredients": [
+      { "item": "Bread", "qty": "4 slices", "prep": "Slightly stale bread soaks best.", "substitutes": [] },
+      { "item": "Eggs", "qty": "2", "prep": "Beaten", "substitutes": [] },
+      { "item": "Milk + sugar + nutmeg", "qty": "1/4 cup + 1 tbsp + pinch", "prep": "", "substitutes": [] },
+      { "item": "Butter", "qty": "for the pan", "prep": "", "substitutes": [] }
+    ],
+    "steps": [
+      { "action": "Whisk the eggs with the milk, sugar and nutmeg in a wide bowl.", "duration_min": 2, "cue": "Smooth, pale, lightly sweet batter.", "why": "Milk and sugar are what turn plain egg-bread into French toast.", "watch_out": "" },
+      { "action": "Dip each slice of bread in, letting it soak a few seconds each side.", "duration_min": 2, "cue": "Bread is soaked through but not falling apart.", "why": "A proper soak gives the soft custardy middle.", "watch_out": "Don't soak so long it turns to mush — a few seconds a side." },
+      { "action": "Melt a little butter in a pan on medium and fry each slice until golden, about 2 minutes a side.", "duration_min": 7, "cue": "Deep golden, set in the middle, no wet batter.", "why": "Medium heat cooks the custard centre before the outside burns.", "watch_out": "Too hot and it browns before the inside sets — keep it medium." }
+    ],
+    "doneness_signature": "Golden, soft-centred sweet toast you can dust with sugar.",
+    "rescue": [
+      { "problem": "Soggy middle", "fix": "Lower the heat and give it another minute a side to set." }
+    ],
+    "level_up": [
+      { "touch": "Banana & honey", "how": "Top with sliced banana, a handful of groundnut and a drizzle of honey." }
+    ],
+    "active_minutes": 13,
+    "difficulty_dots": 1
+  }
+]

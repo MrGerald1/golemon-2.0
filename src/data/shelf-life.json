@@ -1,0 +1,252 @@
+[
+  {
+    "category": "fresh_leafy_green",
+    "name": "Spinach, fresh raw",
+    "shelf_days_ambient": 2,
+    "shelf_days_fridge": 4,
+    "source": "stilltasty+nigerian_override",
+    "st_raw": {
+      "refrigerator": "5-7 days",
+      "pantry": "",
+      "counter": "",
+      "freezer": "10-12 months"
+    },
+    "storage_note": "Ugu/efo wilt fast in tropical heat; shorter than US spinach"
+  },
+  {
+    "category": "fresh_protein_fish",
+    "name": "Mackerel, fresh raw",
+    "shelf_days_ambient": 1,
+    "shelf_days_fridge": 1,
+    "source": "stilltasty+nigerian_override",
+    "st_raw": {
+      "refrigerator": "1-2 days",
+      "pantry": "",
+      "counter": "",
+      "freezer": "2-3 months"
+    },
+    "storage_note": "Fresh titus/mackerel — cook within a day in Lagos"
+  },
+  {
+    "category": "fresh_protein_meat",
+    "name": "Beef steak, fresh raw",
+    "shelf_days_ambient": 1,
+    "shelf_days_fridge": 4,
+    "source": "stilltasty+nigerian_override",
+    "st_raw": {
+      "refrigerator": "3-5 days",
+      "pantry": "",
+      "counter": "",
+      "freezer": "6-12 months (best quality)"
+    },
+    "storage_note": "Fresh beef from open market; chilled ~4 days"
+  },
+  {
+    "category": "fresh_protein_poultry",
+    "name": "Chicken pieces, fresh raw",
+    "shelf_days_ambient": 1,
+    "shelf_days_fridge": 2,
+    "source": "stilltasty+nigerian_override",
+    "st_raw": {
+      "refrigerator": "1-2 days",
+      "pantry": "",
+      "counter": "",
+      "freezer": "9-12 months (best quality)"
+    },
+    "storage_note": "Fresh chicken — 1-2 days"
+  },
+  {
+    "category": "eggs",
+    "name": "Eggs, fresh raw in shell",
+    "shelf_days_ambient": 28,
+    "shelf_days_fridge": 28,
+    "source": "stilltasty",
+    "st_raw": {
+      "refrigerator": "4-5 weeks",
+      "pantry": "",
+      "counter": "",
+      "freezer": "10-12 months"
+    },
+    "storage_note": "StillTasty: fridge 4-5 weeks."
+  },
+  {
+    "category": "fresh_pepper",
+    "name": "Chili peppers, fresh raw",
+    "shelf_days_ambient": 4,
+    "shelf_days_fridge": 6,
+    "source": "stilltasty+nigerian_override",
+    "st_raw": {
+      "refrigerator": "1 week",
+      "pantry": "",
+      "counter": "",
+      "freezer": "10-12 months"
+    },
+    "storage_note": "Scotch bonnet/tatashe ~ a week chilled"
+  },
+  {
+    "category": "alliums",
+    "name": "Onions, fresh raw",
+    "shelf_days_ambient": 60,
+    "shelf_days_fridge": 60,
+    "source": "stilltasty",
+    "st_raw": {
+      "refrigerator": "2-3 months",
+      "pantry": "2-3 months",
+      "counter": "",
+      "freezer": "6-8 months"
+    },
+    "storage_note": "StillTasty: fridge 2-3 months."
+  },
+  {
+    "category": "fresh_vegetable",
+    "name": "Okra, fresh raw",
+    "shelf_days_ambient": 2,
+    "shelf_days_fridge": 4,
+    "source": "stilltasty+nigerian_override",
+    "st_raw": {
+      "refrigerator": "2-3 days",
+      "pantry": "",
+      "counter": "",
+      "freezer": "10-12 months"
+    },
+    "storage_note": "Okra/garden egg — use within a few days"
+  },
+  {
+    "category": "starchy_tuber",
+    "name": "Sweet potatoes, fresh raw",
+    "shelf_days_ambient": 7,
+    "shelf_days_fridge": 7,
+    "source": "stilltasty",
+    "st_raw": {
+      "refrigerator": "",
+      "pantry": "1-2 weeks (at normal room temperature)",
+      "counter": "",
+      "freezer": "10-12 months"
+    },
+    "storage_note": "StillTasty: fridge 1-2 weeks (at normal room temperature)."
+  },
+  {
+    "category": "starchy_fruit",
+    "name": "Plantains, fresh raw whole",
+    "shelf_days_ambient": 3,
+    "shelf_days_fridge": 4,
+    "source": "stilltasty+nigerian_override",
+    "st_raw": {
+      "refrigerator": "5-7 days once ripe",
+      "pantry": "3-5 days or until ripe",
+      "counter": "",
+      "freezer": "10-12 months"
+    },
+    "storage_note": "Ripe plantain — 3-4 days before it over-ripens"
+  },
+  {
+    "category": "dry_grain_pantry",
+    "name": "Rice, white, uncooked",
+    "shelf_days_ambient": 365,
+    "shelf_days_fridge": 365,
+    "source": "stilltasty",
+    "st_raw": {
+      "refrigerator": "Keeps indefinitely",
+      "pantry": "Keeps indefinitely",
+      "counter": "",
+      "freezer": "Keeps indefinitely"
+    },
+    "storage_note": "StillTasty: fridge Keeps indefinitely."
+  },
+  {
+    "category": "dry_legume_pantry",
+    "name": "Kidney beans, dried, uncooked",
+    "shelf_days_ambient": 365,
+    "shelf_days_fridge": 365,
+    "source": "stilltasty",
+    "st_raw": {
+      "refrigerator": "",
+      "pantry": "2-3 years (best quality)",
+      "counter": "",
+      "freezer": ""
+    },
+    "storage_note": "StillTasty: fridge 2-3 years (best quality)."
+  },
+  {
+    "category": "dry_starch_pantry",
+    "name": "Pasta, dry, uncooked",
+    "shelf_days_ambient": 365,
+    "shelf_days_fridge": 365,
+    "source": "stilltasty",
+    "st_raw": {
+      "refrigerator": "",
+      "pantry": "3 years",
+      "counter": "",
+      "freezer": ""
+    },
+    "storage_note": "StillTasty: fridge 3 years."
+  },
+  {
+    "category": "fermented_condiment_pantry",
+    "name": "Bouillon cubes",
+    "shelf_days_ambient": 365,
+    "shelf_days_fridge": 365,
+    "source": "stilltasty",
+    "st_raw": {
+      "refrigerator": "",
+      "pantry": "2 years (best quality)",
+      "counter": "",
+      "freezer": ""
+    },
+    "storage_note": "StillTasty: fridge 2 years (best quality)."
+  },
+  {
+    "category": "fruit",
+    "name": "Pineapple, fresh raw",
+    "shelf_days_ambient": 3,
+    "shelf_days_fridge": 3,
+    "source": "stilltasty",
+    "st_raw": {
+      "refrigerator": "3-4 days",
+      "pantry": "",
+      "counter": "",
+      "freezer": "10-12 months"
+    },
+    "storage_note": "StillTasty: fridge 3-4 days."
+  },
+  {
+    "category": "fresh_tomato_family",
+    "name": "Fresh tomatoes",
+    "shelf_days_ambient": 2,
+    "shelf_days_fridge": 4,
+    "source": "nigerian_food_knowledge",
+    "storage_note": "Market tomatoes bruise fast; cook within 2 days."
+  },
+  {
+    "category": "fresh_protein_offal",
+    "name": "Kpomo (cow skin)",
+    "shelf_days_ambient": 1,
+    "shelf_days_fridge": 3,
+    "source": "nigerian_food_knowledge",
+    "storage_note": "Cook within 3 days chilled."
+  },
+  {
+    "category": "dried_preserved_protein",
+    "name": "Crayfish / stockfish",
+    "shelf_days_ambient": 180,
+    "shelf_days_fridge": 365,
+    "source": "nigerian_food_knowledge",
+    "storage_note": "Dried — keeps for months in a sealed container."
+  },
+  {
+    "category": "cooking_oil_pantry",
+    "name": "Palm / vegetable oil",
+    "shelf_days_ambient": 365,
+    "shelf_days_fridge": 365,
+    "source": "nigerian_food_knowledge",
+    "storage_note": "Pantry staple."
+  },
+  {
+    "category": "bakery_bread",
+    "name": "Agege bread",
+    "shelf_days_ambient": 3,
+    "shelf_days_fridge": 5,
+    "source": "nigerian_food_knowledge",
+    "storage_note": "Best within 3 days; refrigeration stales it faster."
+  }
+]
